@@ -16,16 +16,16 @@
 - Y mucho más...
 
 # Materiales necesarios
-- [Raspberry Pi 3](https://www.amazon.es/Raspberry-Modelo-GHz-Quad-core-Cortex-A53/dp/B01CD5VC92/ref=sr_1_1?ie=UTF8&qid=1469090832&sr=8-1&keywords=raspberry) - Quadcore 1200MHz @ 1Gb RAM
-- Tarjeta microSD SDHC 6Gb, recomiendo [SanDisk SDSQXNE-032G-GN6AA](https://www.amazon.es/gp/product/B013CP5A0Y/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1)
-- Cargador de corriente micro USB, 5V y 3A, recomiendo [éste modelo](https://www.amazon.es/Aukru-3000mA-Cargador-Adaptador-Raspberry/dp/B01566WOAG/ref=sr_1_13?ie=UTF8&qid=1469090832&sr=8-13&keywords=raspberry)
-- Caja protectora, recomiendo [ésta caja con ventilador](https://www.amazon.es/TRIXES-transparente-ventilador-enfriamiento-Raspberry/dp/B01BKIQJD2/ref=sr_1_22?ie=UTF8&qid=1469090864&sr=8-22&keywords=raspberry)
-- [Cable HDMI](https://www.amazon.es/AmazonBasics-Cable-velocidad-est%C3%A1ndar-reciente/dp/B014I8SSD0/ref=sr_1_1?s=electronics-accessories&ie=UTF8&qid=1469091932&sr=1-1&keywords=cable+hdmi)
+- [**Raspberry Pi 3**](https://www.amazon.es/Raspberry-Modelo-GHz-Quad-core-Cortex-A53/dp/B01CD5VC92/ref=sr_1_1?ie=UTF8&qid=1469090832&sr=8-1&keywords=raspberry) - Quadcore 1200MHz @ 1Gb RAM
+- Tarjeta **microSD SDHC** 6Gb, recomiendo [SanDisk SDSQXNE-032G-GN6AA](https://www.amazon.es/gp/product/B013CP5A0Y/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1)
+- Cargador de corriente micro USB, **5V** y **3A**, recomiendo [éste modelo](https://www.amazon.es/Aukru-3000mA-Cargador-Adaptador-Raspberry/dp/B01566WOAG/ref=sr_1_13?ie=UTF8&qid=1469090832&sr=8-13&keywords=raspberry)
+- **Caja** protectora, recomiendo [ésta caja con **ventilador**](https://www.amazon.es/TRIXES-transparente-ventilador-enfriamiento-Raspberry/dp/B01BKIQJD2/ref=sr_1_22?ie=UTF8&qid=1469090864&sr=8-22&keywords=raspberry)
+- [Cable **HDMI** 2.0](https://www.amazon.es/AmazonBasics-Cable-velocidad-est%C3%A1ndar-reciente/dp/B014I8SSD0/ref=sr_1_1?s=electronics-accessories&ie=UTF8&qid=1469091932&sr=1-1&keywords=cable+hdmi)
 
 # Materiales recomendados
-- [Interruptor USB](http://www.ebay.es/itm/Switched-microUSB-extension-lead-Raspberry-Pi-etc-Power-Cable/171305347085?_trksid=p2047675.c100005.m1851&_trkparms=aid%3D222007%26algo%3DSIC.MBE%26ao%3D1%26asc%3D20140620091323%26meid%3Dd9ed3dfdcbda43208e646caa71adf5b5%26pid%3D100005%26rk%3D3%26rkt%3D6%26mehot%3Dpp%26sd%3D171411830547) para apagar la Raspberry
-- Disipadores de [cobre](https://www.amazon.es/enfriamiento-disipador-t%C3%A9rmico-disipadores-Raspberry/dp/B00LSF9ZKW/ref=sr_1_64?ie=UTF8&qid=1469090886&sr=8-64&keywords=raspberry) o [aluminio](https://www.amazon.es/Aukru-Disipador-Raspberry-aluminio-unidades/dp/B00ILK6DMA/ref=sr_1_9?ie=UTF8&qid=1469090832&sr=8-9&keywords=raspberry)
-- Teclado inalámbrico, recomiendo [Logitech K400](https://www.amazon.es/Logitech-K400-Plus-inal%C3%A1mbrico-incorporado/dp/B00XYTTEAQ/ref=sr_1_1?ie=UTF8&qid=1469090931&sr=8-1&keywords=logitech+k400)
+- [Interruptor **USB**](http://www.ebay.es/itm/Switched-microUSB-extension-lead-Raspberry-Pi-etc-Power-Cable/171305347085?_trksid=p2047675.c100005.m1851&_trkparms=aid%3D222007%26algo%3DSIC.MBE%26ao%3D1%26asc%3D20140620091323%26meid%3Dd9ed3dfdcbda43208e646caa71adf5b5%26pid%3D100005%26rk%3D3%26rkt%3D6%26mehot%3Dpp%26sd%3D171411830547) para apagar la Raspberry
+- Disipadores de [**cobre**](https://www.amazon.es/enfriamiento-disipador-t%C3%A9rmico-disipadores-Raspberry/dp/B00LSF9ZKW/ref=sr_1_64?ie=UTF8&qid=1469090886&sr=8-64&keywords=raspberry) o [aluminio](https://www.amazon.es/Aukru-Disipador-Raspberry-aluminio-unidades/dp/B00ILK6DMA/ref=sr_1_9?ie=UTF8&qid=1469090832&sr=8-9&keywords=raspberry)
+- Teclado inalámbrico, recomiendo [Logitech **K400**](https://www.amazon.es/Logitech-K400-Plus-inal%C3%A1mbrico-incorporado/dp/B00XYTTEAQ/ref=sr_1_1?ie=UTF8&qid=1469090931&sr=8-1&keywords=logitech+k400)
 
 Recomiendo hacer el montaje usando **cable de red ethernet**. Si no disponemos de conexión por cable en el salón, podemos realizar el montaje usando el **wifi** integrado de la Raspberry 3, pero no lo recomiendo ya que el streaming se podría cortar.
 
@@ -81,19 +81,19 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 - CU LRC Lyrics
 
 # Más información
-- Viene todo preconfigurado para enchufar y usar
-- Configuración personalizada para Spanish: Layout, Audio, Video y Subtítulos
-- Ethernet con IP automática (DHCP)
-- Protocolos SSH y SMB (Samba) habilitados (usuario = root / password = aikoncwd)
-- Kodi con Skin Confluence
-- Transmission tuneado para maximizar su velocidad de torrents
-- Acceso por Zeroconf habilitado (para control remoto desde smartphone)
-- Protocolo AirPlay deshabilitado (mejora rendimiento)
-- Addon de ElTiempo deshabilitado (mejora rendimiento)
-- Lector de noticias RSS deshabilitado (mejora rendimiento)
-- Biblioteca compartida por UPnP deshabilitado (mejora rendimiento)
-- Librería Python libtorrent instalada para acelerar streaming
-- Librería librtmp actualizada
+- Viene todo preconfigurado para **enchufar y usar**
+- Configuración personalizada en **Castellano**: Teclado, Zona Horaria, Layout y Subtítulos
+- Ethernet con **IP automática** (DHCP)
+- Protocolos **SSH** y **SMB** (Samba) habilitados (usuario = **root** / password = **aikoncwd**)
+- Kodi con Skin **Confluence**
+- Transmission tuneado para **maximizar su velocidad de torrents**
+- Acceso por **Zeroconf** habilitado (para control remoto desde smartphone)
+- Protocolo **AirPlay** deshabilitado (mejora rendimiento)
+- Addon de **ElTiempo** deshabilitado (mejora rendimiento)
+- Lector de noticias **RSS** deshabilitado (mejora rendimiento)
+- Biblioteca compartida por **UPnP** deshabilitado (mejora rendimiento)
+- Librería Python **libtorrent** instalada para acelerar streaming
+- Librería **librtmp** actualizada
 
 ---
 
@@ -121,7 +121,7 @@ static ip_address=192.168.1.100/24
 static routers=192.168.1.1
 static domain_name_servers=8.8.8.8
 ```
-Puede que el router de tu casa tenga otra dirección (por ejemplo 192.168.0.1), personaliza éste fichero para adaptarlo según el caso. Si tienes intención de utilizar el wifi, repite los mismos pasos aplicándo a la sección **interface wlan0**
+Puede que el router de tu casa tenga otra dirección (por ejemplo **192.168.0.1**), personaliza éste fichero para adaptarlo según el caso. Si tienes intención de utilizar el **wifi**, repite los mismos pasos aplicándo a la sección **interface wlan0**
 
 Una vez finalizado, guarda los cambios en el fichero, para ello pulsa: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>.
 
@@ -129,48 +129,48 @@ Una vez finalizado, guarda los cambios en el fichero, para ello pulsa: <kbd>CTRL
 El usuario por defecto de ésta imagen es **root**, su contraseña original es **aikoncwd**. Recomiendo encarecidamente que cambies ese password, para ello escribe el comando `passwd root`, a continuación escribe tu nuevo password 2 veces. Recuerda que éste usuario/password lo utilizarás para acceder a la Raspberry por **SSH** o **sFTP** (FileZilla), también lo usarás si pretendes controlar Kodi desde tu smartphone, etc...
 
 #PASO 4: Configurar Transmission (opcional)
-Transmission es un programa que permite transformar tu Raspberry en un servidor de descargas BitTorrent. El daemon de transmission está instalado y configurado, pero se encuentra deshabilitado por defecto ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar transmission... sigue leyendo:
+**Transmission** es un programa que permite transformar tu Raspberry en un servidor de descargas **BitTorrent**. El daemon de transmission está instalado y configurado, pero **se encuentra deshabilitado por defecto** ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar transmission... sigue leyendo:
 
-Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la Raspberry. Edita el fichero de auto-arranque con el comando:
+Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la **Raspberry**. Edita el fichero de auto-arranque con el comando:
 
     nano /etc/rc.local
 
 El fichero tiene comentarios, básicamente tienes que localizar y eliminar la línea `service transmission-daemon stop`. Pulsando <kbd>CTRL</kbd>+<kbd>K</kbd> borrarás la línea actual. Salva los cambios en el fichero `/etc/rc.local` pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>.
 
-Asegurate que el daemon de transmission está detenido, ejecuta los siguiente commandos:
+Asegurate que el **daemon** de transmission está **detenido**, ejecuta los siguientes commandos:
 
     service transmission-daemon stop
     /etc/init.d/transmission-daemon stop
 
-Edita el fichero de configuación:
+Edita el fichero de **configuación**:
 
     nano /root/.config/transmission-daemon/settings.json
 
 Los campos importantes a modificar son:
 
-- *"download-dir": "/root/Downloads",* = Ruta de descarga por defecto
-- *"rpc-authentication-required": true,* = Proteger acceso a tranmission con password
-- *"rpc-password": "root",* = Password para acceder a transmission
-- *"rpc-username": "root",* = Usuario para acceder a transmission
+- `"download-dir": "/root/Downloads",` = Ruta de descarga por defecto
+- `"rpc-authentication-required": true,` = Proteger acceso a tranmission con password
+- `"rpc-password": "root",` = Password para acceder a transmission
+- `"rpc-username": "root",` = Usuario para acceder a transmission
 
-Salva los cambios en el fichero `settings.json` pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>. Activa el daemon manualmente con el comando:
+Salva los cambios en el fichero `settings.json` pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>. Activa el daemon **manualmente** con el comando:
 
     service transmission-daemon start
 
-El daemon de Transmission estará activo en el puerto 9091, con usuario y password root. Podrás comprobar el daemon si accedes a través de un explorador web a la dirección http://ip_raspberry:9091, por ejemplo http://192.168.1.100:9091 Pulsamos el botón de configuración "llave inglesa" para editar las preferencias. La configuración de descargas está configurado para ser lo más óptima posible. Encontrarás agregada una URL de ip-block para mejorar la descarga de ficheros torrents en transmission.
+El daemon de Transmission estará activo en el **puerto 9091**, con usuario y password **root**. Podrás comprobar el daemon si accedes a través de un explorador web a la dirección http://ip_raspberry:9091, por ejemplo **http://192.168.1.100:9091** Pulsamos el botón de configuración *llave inglesa* para editar las preferencias. La configuración de descargas está configurado para ser lo más óptima posible. Encontrarás agregada una URL de **ip-block** para mejorar la descarga de ficheros torrents en transmission. Puedes controlar transmission desde tu smartphone, hay una [app](https://play.google.com/store/apps/details?id=com.neogb.rtac&hl=es) para ello (también en iOS). 
 
 #PASO 5: Configurar PyLoad (opcional)
-PyLoad es un programa que permite transformar tu Raspberry en un servidor de descargas directas. El daemon de PyLoad está instalado y configurado, pero se encuentra deshabilitado por defecto ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar PyLoad... sigue leyendo:
+**PyLoad** es un programa que permite transformar tu Raspberry en un servidor de **descargas directas**. El daemon de PyLoad está instalado y configurado, pero **se encuentra deshabilitado por defecto** ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar PyLoad... sigue leyendo:
 
-Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la Raspberry. Edita el fichero de auto-arranque cron con el comando:
+Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la **Raspberry**. Edita el fichero de auto-arranque **cron** con el comando:
 
     crontab -e
 
-Nos situamos en la parte inferior, localiza la línea `#@Reboot pyload` y quita el comentario del principio, deberá quedar asi: `@Reboot pyload`. Salva los cambios en `cron` pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>
+Nos situamos en la parte inferior, localiza la línea `#@Reboot pyload` y quita el **comentario** del principio, deberá quedar asi: `@Reboot pyload`. Salva los cambios pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>
 
 *Falta añadir como ejecutar pyload la primera vez!*
 
-Accedemos a PyLoad a través de un explorador web usando el puerto 8000, por ejemplo: http://192.168.1.100:8000  
+Accedemos a PyLoad a través de un explorador web usando el **puerto 8000**, por ejemplo: **http://192.168.1.100:8000**  
 El usuario por defecto es **root** y password **root**. En el menu superior puedes *administrar* el usuario y cambiar el password (recomendado), justo abajo encontrarás la *configuración* donde podrás editar la configuración, los plugins de captchas etc... y añadir cualquier cuenta premium que poseas de los diferentes hosts.
 
 ![](http://i.imgur.com/o8A62oq.png)
