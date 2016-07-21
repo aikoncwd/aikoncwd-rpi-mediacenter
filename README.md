@@ -131,36 +131,49 @@ El usuario por defecto de ésta imagen es **root**, su contraseña original es *
 #PASO 4: Configurar Transmission (opcional)
 Transmission es un programa que permite transformar tu Raspberry en un servidor de descargas BitTorrent. El daemon de transmission está instalado y configurado, pero se encuentra deshabilitado por defecto ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar transmission... sigue leyendo:
 
-Primero de todo vamos a habilitar el daemon, edita el fichero de auto-arranque con el comando `nano /etc/rc.local`. El fichero tienes comentarios, básicamente tienes que localizar y eliminar la línea `service transmission-daemon stop`. Pulsando <kbd>CTRL</kbd>+<kbd>K</kbd> borrarás la línea actual. Salva los cambios en el fichero `/etc/rc.local` pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>.
+Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la Raspberry. Edita el fichero de auto-arranque con el comando:
 
-Asegurate que el daemon de transmission está detenido, utiliza los siguiente commandos:
+    nano /etc/rc.local
+
+El fichero tiene comentarios, básicamente tienes que localizar y eliminar la línea `service transmission-daemon stop`. Pulsando <kbd>CTRL</kbd>+<kbd>K</kbd> borrarás la línea actual. Salva los cambios en el fichero `/etc/rc.local` pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>.
+
+Asegurate que el daemon de transmission está detenido, ejecuta los siguiente commandos:
 
     service transmission-daemon stop
     /etc/init.d/transmission-daemon stop
 
-Con el daemon detenido, edita el fichero de configuación con el comando `nano /root/.config/transmission-daemon/settings.json`. Los campos importantes a modificar son:
+Edita el fichero de configuación:
 
+    nano /root/.config/transmission-daemon/settings.json
 
+Los campos importantes a modificar son:
 
-El daemon de Transmission está activo en el puerto 9091, con usuario y password root. Para editarlo haz lo siguiente en la consola:
+- *"download-dir": "/root/Downloads",* = Ruta de descarga por defecto
+- *"rpc-authentication-required": true,* = Proteger acceso a tranmission con password
+- *"rpc-password": "root",* = Password para acceder a transmission
+- *"rpc-username": "root",* = Usuario para acceder a transmission
 
+Salva los cambios en el fichero `settings.json` pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>. Activa el daemon manualmente con el comando:
 
+    service transmission-daemon start
 
-nano /etc/transmission-daemon/settings.json
-
-En ese fichero edita los campos:
-
-“rpc-password”: “tu_password”,
-“rpc-username”: “root”,
-
-Una vez finalizado repite los mismo pasos: presiona Ctrl+X, luego Y y finalmente INTRO. Restaura el daemon usando el comando:
-
-/etc/init.d/transmission-daemon start
-
-Te recomiendo que hagas tambien un reboot para asegurarte que todo está correcto. Podrás comprobar el daemon si accedes a través de un explorador a la dirección http://ip_raspberry:9091 Pulsamos el botón de configuración "llave inglesa" para editar las preferencias. La configuración de descargas está configurado para ser lo más óptima posible. He agregado una url de ip-block para mejorar la descarga de ficheros torrents en transmission.
+El daemon de Transmission estará activo en el puerto 9091, con usuario y password root. Podrás comprobar el daemon si accedes a través de un explorador web a la dirección http://ip_raspberry:9091, por ejemplo http://192.168.1.100:9091 Pulsamos el botón de configuración "llave inglesa" para editar las preferencias. La configuración de descargas está configurado para ser lo más óptima posible. Encontrarás agregada una URL de ip-block para mejorar la descarga de ficheros torrents en transmission.
 
 #PASO 5: Configurar PyLoad (opcional)
-Falta completar...
+PyLoad es un programa que permite transformar tu Raspberry en un servidor de descargas directas. El daemon de PyLoad está instalado y configurado, pero se encuentra deshabilitado por defecto ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar PyLoad... sigue leyendo:
+
+Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la Raspberry. Edita el fichero de auto-arranque cron con el comando:
+
+    crontab -e
+
+Nos situamos en la parte inferior, localiza la línea `#@Reboot pyload` y quita el comentario del principio, deberá quedar asi: `@Reboot pyload`. Salva los cambios en `cron` pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>
+
+*Falta añadir como ejecutar pyload la primera vez!*
+
+Accedemos a PyLoad a través de un explorador web usando el puerto 8000, por ejemplo: http://192.168.1.100:8000  
+El usuario por defecto es **root** y password **root**. En el menu superior puedes *administrar* el usuario y cambiar el password (recomendado), justo abajo encontrarás la *configuración* donde podrás editar la configuración, los plugins de captchas etc... y añadir cualquier cuenta premium que poseas de los diferentes hosts.
+
+![](http://i.imgur.com/o8A62oq.png)
 
 #Cosas que me falta escribir:
 - Recomendaciones
