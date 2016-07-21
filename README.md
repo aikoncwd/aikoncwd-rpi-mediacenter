@@ -27,13 +27,11 @@
 - Disipadores de [cobre](https://www.amazon.es/enfriamiento-disipador-t%C3%A9rmico-disipadores-Raspberry/dp/B00LSF9ZKW/ref=sr_1_64?ie=UTF8&qid=1469090886&sr=8-64&keywords=raspberry) o [aluminio](https://www.amazon.es/Aukru-Disipador-Raspberry-aluminio-unidades/dp/B00ILK6DMA/ref=sr_1_9?ie=UTF8&qid=1469090832&sr=8-9&keywords=raspberry)
 - Teclado inalámbrico, recomiendo [Logitech K400](https://www.amazon.es/Logitech-K400-Plus-inal%C3%A1mbrico-incorporado/dp/B00XYTTEAQ/ref=sr_1_1?ie=UTF8&qid=1469090931&sr=8-1&keywords=logitech+k400)
 
-Recomiendo hacer el montaje usando cable de red ethernet. Si no disponemos de conexión por cable en el salón, podemos realizar el montaje usando el wifi integrado de la Raspberry 3, pero no lo recomiendo
+Recomiendo hacer el montaje usando **cable de red ethernet**. Si no disponemos de conexión por cable en el salón, podemos realizar el montaje usando el **wifi** integrado de la Raspberry 3, pero no lo recomiendo ya que el streaming se podría cortar.
 
 # Contenido del MediaCenter
-### FALTA ACTUALIZAR ÉSTA SECCIÓN
-
-Mediacenter Kodi 16.1 Jarvis, compilación arm7
-Valido RaspberryPi 2 y RaspberryPi 3
+**Mediacenter Kodi 16.1 Jarvis**, *compilación arm7*
+Válido **RaspberryPi 2** y **RaspberryPi 3**
 
 **REPOSITORIOS**
 - Kodi Addon Repo
@@ -73,52 +71,50 @@ Valido RaspberryPi 2 y RaspberryPi 3
 - The TVDB
 Los scrapers descargan automáticamente la información, portada, sinopsis, reparto, puntuaciones, .... de cualquier película o serie que visualicemos
 
-SUBTITULOS
+**SUBTITULOS**
 - Addic7ed.com
 - OpenSubtitles.org
 - Subdivx.com
 - TuSubtitulo
 
-LETRAS/LYRIC
+**LETRAS/LYRIC**
 - CU LRC Lyrics
 
 # Más información
 - Viene todo preconfigurado para enchufar y usar
 - Configuración personalizada para Spanish: Layout, Audio, Video y Subtítulos
 - Ethernet con IP automática (DHCP)
-- Protocolos SSH y SMB (Samba) habilitados (usuario = root / password = root)
-- Skin Confluence
+- Protocolos SSH y SMB (Samba) habilitados (usuario = root / password = aikoncwd)
+- Kodi con Skin Confluence
 - Transmission tuneado para maximizar su velocidad de torrents
-- Icono atrás/subir directorio oculto
-- Mostrar extensión en ficheros habilitado
-- Permitir renombrar y borrar ficheros habilitado
 - Acceso por Zeroconf habilitado (para control remoto desde smartphone)
 - Protocolo AirPlay deshabilitado (mejora rendimiento)
 - Addon de ElTiempo deshabilitado (mejora rendimiento)
 - Lector de noticias RSS deshabilitado (mejora rendimiento)
 - Biblioteca compartida por UPnP deshabilitado (mejora rendimiento)
-- Hack para librería librtmp de SuperCeleron (updated: 22/07/2015)
+- Librería Python libtorrent instalada para acelerar streaming
+- Librería librtmp actualizada
 
 ---
 
 # PASO 1: Instalación
-1. Descargar la imágen preconfigurada [Mediacenter-AikonCWD-v6.img](#)
-2. Grabar la imagen en tu tarjeta microUSB:
-  - Desde Windows: Utilizar el programa [win32diskimager](https://sourceforge.net/projects/win32diskimager/)
-  - Desde Linux/Mac: `sudo dd if=/ruta/Mediacenter-AikonCWD-v6.img of=/dev/mmcblk0 bs=4M; sync`
-3. Introduce tu microUSB con la imagen grabada en tu Raspberry
-4. Enchufa el cable de alimentación
+1. Descargar la imágen preconfigurada [**Mediacenter-AikonCWD-v6.img**](https://github.com/aikoncwd/aikoncwd-rpi-mediacenter/raw/master/Mediacenter-AikonCWD-v6.torrent)
+2. Grabar la imagen en tu tarjeta **microSD**:
+  - Desde **Windows**: Utilizar el programa [win32diskimager](https://sourceforge.net/projects/win32diskimager/)
+  - Desde **Linux/Mac**: `sudo dd if=/path/Mediacenter-AikonCWD-v6.img of=/dev/mmcblk0 bs=4M`
+3. Introduce tu **microSD** con la imagen grabada en tu Raspberry
+4. Enchufa el **cable de alimentación**
 5. La Raspberry se encenderá, aparecerá la imágen inicial de *garlic-dog*
-6. La Raspberry se reiniciará automáticamente, volverás a ver la imagen inicial de *garlic-dog*
-7. El mediacenter Kodi arrancará automáticamente
-8. Pulsamos el botón situado en la esquina inferior izquierda, seleccionamos **salir** para cerrar Kodi
-9. Verificar que la imagen ocupa el 100% de tu microSD con el comando `df -h` (opcional)
+6. La Raspberry se **reiniciará automáticamente**, volverás a ver la imagen inicial de *garlic-dog*
+7. El mediacenter **Kodi** arrancará automáticamente
+8. Pulsamos el botón situado en la *esquina inferior izquierda*, seleccionamos **salir** para cerrar **Kodi**
+9. Verificar que la partición ocupa el **100% de tu microSD** con el comando `df -h` (opcional)
 
-Tras salir de Kodi estaremos en la consola, si en lugar de la consola vemos el fondo totalmente negro es posible que haya saltado el salvapantallas, pulsa una tecla en tu teclado y la consola aparecerá de nuevo
+Tras salir de Kodi estaremos en la **consola**, si en lugar de la consola vemos el fondo totalmente negro es posible que haya saltado el salvapantallas, pulsa una tecla en tu teclado y la consola aparecerá de nuevo.
 
 # PASO 2: Configurar IP Estática
 1. Editamos el fichero de configuración con el comando `nano /etc/dhcpcd.conf`
-2. Quitamos el comentario (#) que hay al principio de cada línea:
+2. Quitamos el comentario (**#**) que hay al principio de cada línea:
 ```
 interface eth0
 static ip_address=192.168.1.100/24
@@ -127,13 +123,41 @@ static domain_name_servers=8.8.8.8
 ```
 Puede que el router de tu casa tenga otra dirección (por ejemplo 192.168.0.1), personaliza éste fichero para adaptarlo según el caso. Si tienes intención de utilizar el wifi, repite los mismos pasos aplicándo a la sección **interface wlan0**
 
-Una vez finalizado, guarda los cambios en el fichero, para ello pulsa: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>
+Una vez finalizado, guarda los cambios en el fichero, para ello pulsa: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>.
 
 #PASO 3: Cambiar el password de root
-El usuario por defecto de ésta imagen es **root**, su contraseña original es **aikoncwd**. Recomiendo encarecidamente que cambies ese password, para ello escribe el comando `passwd root`, a continuación escribe tu nuevo password 2 veces. Recuerda que éste usuario/password lo utilizarás para acceder a la Raspberry por SSH o sFTP (FileZilla), también lo usarás si pretendes controlar Kodi desde tu smartphone, etc...
+El usuario por defecto de ésta imagen es **root**, su contraseña original es **aikoncwd**. Recomiendo encarecidamente que cambies ese password, para ello escribe el comando `passwd root`, a continuación escribe tu nuevo password 2 veces. Recuerda que éste usuario/password lo utilizarás para acceder a la Raspberry por **SSH** o **sFTP** (FileZilla), también lo usarás si pretendes controlar Kodi desde tu smartphone, etc...
 
 #PASO 4: Configurar Transmission (opcional)
-Falta completar...
+Transmission es un programa que permite transformar tu Raspberry en un servidor de descargas BitTorrent. El daemon de transmission está instalado y configurado, pero se encuentra deshabilitado por defecto ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar transmission... sigue leyendo:
+
+Primero de todo vamos a habilitar el daemon, edita el fichero de auto-arranque con el comando `nano /etc/rc.local`. El fichero tienes comentarios, básicamente tienes que localizar y eliminar la línea `service transmission-daemon stop`. Pulsando <kbd>CTRL</kbd>+<kbd>K</kbd> borrarás la línea actual. Salva los cambios en el fichero `/etc/rc.local` pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>.
+
+Asegurate que el daemon de transmission está detenido, utiliza los siguiente commandos:
+
+    service transmission-daemon stop
+    /etc/init.d/transmission-daemon stop
+
+Con el daemon detenido, edita el fichero de configuación con el comando `nano /root/.config/transmission-daemon/settings.json`. Los campos importantes a modificar son:
+
+
+
+El daemon de Transmission está activo en el puerto 9091, con usuario y password root. Para editarlo haz lo siguiente en la consola:
+
+
+
+nano /etc/transmission-daemon/settings.json
+
+En ese fichero edita los campos:
+
+“rpc-password”: “tu_password”,
+“rpc-username”: “root”,
+
+Una vez finalizado repite los mismo pasos: presiona Ctrl+X, luego Y y finalmente INTRO. Restaura el daemon usando el comando:
+
+/etc/init.d/transmission-daemon start
+
+Te recomiendo que hagas tambien un reboot para asegurarte que todo está correcto. Podrás comprobar el daemon si accedes a través de un explorador a la dirección http://ip_raspberry:9091 Pulsamos el botón de configuración "llave inglesa" para editar las preferencias. La configuración de descargas está configurado para ser lo más óptima posible. He agregado una url de ip-block para mejorar la descarga de ficheros torrents en transmission.
 
 #PASO 5: Configurar PyLoad (opcional)
 Falta completar...
