@@ -26,6 +26,7 @@
 - [Interruptor **USB**](http://www.ebay.es/itm/Switched-microUSB-extension-lead-Raspberry-Pi-etc-Power-Cable/171305347085?_trksid=p2047675.c100005.m1851&_trkparms=aid%3D222007%26algo%3DSIC.MBE%26ao%3D1%26asc%3D20140620091323%26meid%3Dd9ed3dfdcbda43208e646caa71adf5b5%26pid%3D100005%26rk%3D3%26rkt%3D6%26mehot%3Dpp%26sd%3D171411830547) para apagar la Raspberry
 - Disipadores de [**cobre**](https://www.amazon.es/enfriamiento-disipador-t%C3%A9rmico-disipadores-Raspberry/dp/B00LSF9ZKW/ref=sr_1_64?ie=UTF8&qid=1469090886&sr=8-64&keywords=raspberry) o [aluminio](https://www.amazon.es/Aukru-Disipador-Raspberry-aluminio-unidades/dp/B00ILK6DMA/ref=sr_1_9?ie=UTF8&qid=1469090832&sr=8-9&keywords=raspberry)
 - Teclado inalámbrico, recomiendo [Logitech **K400**](https://www.amazon.es/Logitech-K400-Plus-inal%C3%A1mbrico-incorporado/dp/B00XYTTEAQ/ref=sr_1_1?ie=UTF8&qid=1469090931&sr=8-1&keywords=logitech+k400)
+- [Mando XBOX 360](https://www.amazon.es/Microsoft-Xbox-Common-Controller-Windows/dp/B004JU0JSK/ref=sr_1_5?ie=UTF8&qid=1469115260&sr=8-5&keywords=xbox+360) (**cable USB**)
 
 Recomiendo hacer el montaje usando **cable de red ethernet**. Si no disponemos de conexión por cable en el salón, podemos realizar el montaje usando el **wifi** integrado de la Raspberry 3, pero no lo recomiendo ya que el streaming se podría cortar.
 
