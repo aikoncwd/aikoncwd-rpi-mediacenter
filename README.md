@@ -13,7 +13,7 @@
 - Reproductor de **canales de TV a la carta y en streaming**
 - Reproductor de **contenido multimedia deportivo** usando *AceStream* y *SopCast*
 - Reproductor de **música, videoclips y radio online**
-- Y mucho más...
+- Herramientas: *Cliente IRC, wavemon, tmux, crawl, y mucho más...*
 
 # Materiales necesarios
 - [**Raspberry Pi 3**](https://www.amazon.es/Raspberry-Modelo-GHz-Quad-core-Cortex-A53/dp/B01CD5VC92/ref=sr_1_1?ie=UTF8&qid=1469090832&sr=8-1&keywords=raspberry) - Quadcore 1200MHz @ 1Gb RAM
@@ -36,36 +36,36 @@ Válido **RaspberryPi 2** y **RaspberryPi 3**
 
 **REPOSITORIOS**
 - Kodi Addon Repo
+- Popcornmix Repo
+- Shanis Repo
 - SuperRepo
 - TVAddons
 
 **PROGRAMAS**
 - AddonInstaller -> Instalador gráfico de addons
-- Backup -> Permite salvar y restaurar un backup de tu OpenELEC en la nube
-- Maintenance Tool -> Varios tweaks para limpiar la cache y optimizar la memoria de OpenELEC
-- Pulsar Providers -> ExtraTorrent + KickAss + Magnetdl + ThePirateBay + Torrentdb + TorrentHound + TorrentZ + Divxatope + Divxtotal + EliteTorrent
-- Provider Manager -> Edita simultaneamente todos los providers de Pulsar
-- Transmission -> Cliente de descargas Torrent
-- Unrar -> Descompresor RAR
-- Inadyn -> Updater de servicios DynDNS, No-Ip y similares
+- Desktop -> Cierra Kodi y ejecuta el escritorio XCFE
+- Emulationstation -> Cierra Kodi y ejecuta Retropie (Emulationstation)
+- Wifi Config -> Cierra Kodi y permite configurar el Wifi y el Bluetooth
+- Maintenance Tool -> Varios tweaks para limpiar la cache y optimizar la memoria de Kodi
+- Quasar Providers -> ExtraTorrent + KickAss + Magnetdl + ThePirateBay + TorrentZ + Yourbittorrent + 1333x
+- Provider Manager -> Edita simultaneamente todos los providers de Quasar
+- XBMC Library AutoUpdate -> Mantiene actualizada y limpia la biblioteca de Kodi
 
 **MUSICA**
-- VEVO -> Música y videoclips organizados por temática, artista, shows, ...
 - TuneIn Radio -> Acceso a cualquier radio online de todo el mundo, música en directo
+- MP3 Streams -> Reproductor de musica en streaming, es un clon ruso de Spotify
 
 **VIDEO**
 - Catoal -> Canales de TV en streaming, contenido nacional e internacional
-- LiveStreamsPro + AdryanList -> Canales de TV en streaming, contenido nacional e internacional
-- MEGA -> Gestor de descargas del conocido MEGA
+- AdryanList -> Canales de TV en streaming, contenido nacional e internacional
 - pelisalacarta -> El mejor addon para ver películas, con acceso a EliteTorrent, Divxatope, ...
-- Pulsar -> El mejor reproductor, visualiza contenido sin esperar a completar la descarga
+- Quasar -> El mejor reproductor, visualiza contenido sin esperar a completar la descarga
 - Plexus-Streams -> Reproductor de enlaces AceStream y SopCast, para contenido deportivo
 - tvalacarta -> Acceso a todo el contenido de la TV bajo demanda (a la carta)
-- cCloudTV -> Listado de canales de TV en streaming, mucho contenido
-- Genesis -> Completísimo addon con contenido de películas y series, todo en inglés VO
 - PleXBMC -> Cliente de Plex para Kodi, gestiona y visualiza toda tu biblioteca Plex
-- XBMCtorrent -> Igual que Pulsar, permite ver contenido torrent sin esperar a descargar
-- YouTube -> No lo conoces?
+- XBMCtorrent -> Igual que Quasar, permite ver contenido torrent sin esperar a descargar
+- Torrenter -> Igual que Quasar, permite ver contenido torrent sin esperar a descargar
+- YouTube -> Cliente para visualizar videos de Youtube, reproduce contenido VEVO también
 
 **SCRAPERS**
 - The Movie atabase
@@ -101,8 +101,8 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 # PASO 1: Instalación
 1. Descargar la imágen preconfigurada [**Mediacenter-AikonCWD-v6.img**](https://github.com/aikoncwd/aikoncwd-rpi-mediacenter/raw/master/Mediacenter-AikonCWD-v6.torrent)
 2. Grabar la imagen en tu tarjeta **microSD**:
-  - Desde **Windows**: Utilizar el programa [win32diskimager](https://sourceforge.net/projects/win32diskimager/)
-  - Desde **Linux/Mac**: `sudo dd if=/path/Mediacenter-AikonCWD-v6.img of=/dev/mmcblk0 bs=4M`
+  - **Windows**: Utilizar el programa [win32diskimager](https://sourceforge.net/projects/win32diskimager/)
+  - **Linux/Mac**: `sudo dd if=/path/Mediacenter-AikonCWD-v6.img of=/dev/mmcblk0 bs=4M`
 3. Introduce tu **microSD** con la imagen grabada en tu Raspberry
 4. Enchufa el **cable de alimentación**
 5. La Raspberry se encenderá, aparecerá la imágen inicial de *garlic-dog*
@@ -127,7 +127,7 @@ Puede que el router de tu casa tenga otra dirección (por ejemplo **192.168.0.1*
 Una vez finalizado, guarda los cambios en el fichero, para ello pulsa: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>.
 
 #PASO 3: Cambiar el password de root
-El usuario por defecto de ésta imagen es **root**, su contraseña original es **aikoncwd**. Recomiendo encarecidamente que cambies ese password, para ello escribe el comando `passwd root`, a continuación escribe tu nuevo password 2 veces. Recuerda que éste usuario/password lo utilizarás para acceder a la Raspberry por **SSH** o **sFTP** (FileZilla), también lo usarás si pretendes controlar Kodi desde tu smartphone, etc...
+El usuario por defecto de ésta imagen es **root**, la contraseña original es **aikoncwd**. Recomiendo encarecidamente que cambies ese password, para ello escribe el comando `passwd root`, a continuación escribe tu nuevo password 2 veces. Recuerda que éste usuario/password lo utilizarás para acceder a la Raspberry por **SSH** o **sFTP** (FileZilla), también lo usarás si pretendes controlar Kodi desde tu **smartphone**, etc...
 
 #PASO 4: Configurar Transmission (opcional)
 **Transmission** es un programa que permite transformar tu Raspberry en un servidor de descargas **BitTorrent**. El daemon de transmission está instalado y configurado, pero **se encuentra deshabilitado por defecto** ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar transmission... sigue leyendo:
@@ -149,10 +149,12 @@ Edita el fichero de **configuación**:
 
 Los campos importantes a modificar son:
 
-- `"download-dir": "/root/Downloads",` = Ruta de descarga por defecto
-- `"rpc-authentication-required": true,` = Proteger acceso a tranmission con password
-- `"rpc-password": "root",` = Password para acceder a transmission
-- `"rpc-username": "root",` = Usuario para acceder a transmission
+|   |   |
+|---|---|
+| "download-dir": "/root/Downloads", | Ruta de descarga por defecto |
+| "rpc-authentication-required": true, | Proteger acceso a tranmission con password |
+| "rpc-password": "root", | Password para acceder a transmission |
+| "rpc-username": "root", | Usuario para acceder a transmission |
 
 Salva los cambios en el fichero `settings.json` pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>. Activa el daemon **manualmente** con el comando:
 
@@ -167,9 +169,9 @@ Primero de todo vamos a configurar el daemon para que se auto-ejecute al encende
 
     crontab -e
 
-Nos situamos en la parte inferior, localiza la línea `#@Reboot pyload` y quita el **comentario** del principio, deberá quedar asi: `@Reboot pyload`. Salva los cambios pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>
+Nos situamos en la parte inferior, localiza la línea `#@reboot pyLoadCore -daemon` y quita el **comentario** del principio, deberá quedar asi: `@reboot pyLoadCore --daemon` (**tienes que poner los 2 guiones delante de la palabra daemon**). Salva los cambios pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>
 
-*Falta añadir como ejecutar pyload la primera vez!*
+Tendrás que reiniciar tu Raspberry para tener el daemon de pyLoad en ejecución, recuerda que Kodi se enciende automáticamente, deberás cerrarlo para volver a la consola.
 
 Accedemos a PyLoad a través de un explorador web usando el **puerto 8000**, por ejemplo: **http://192.168.1.100:8000**  
 El usuario por defecto es **root** y password **root**. En el menu superior puedes *administrar* el usuario y cambiar el password (recomendado), justo abajo encontrarás la *configuración* donde podrás editar la configuración, los plugins de captchas etc... y añadir cualquier cuenta premium que poseas de los diferentes hosts.
@@ -177,12 +179,13 @@ El usuario por defecto es **root** y password **root**. En el menu superior pued
 ![](http://i.imgur.com/o8A62oq.png)
 
 # Recomendaciones
-- Configura una IP manual a tu Raspberry
-- Abre el puerto 51413 para aumentar la velocidad de Transmission (torrents)
-- Abre el puerto 9091 para administrar Transmission desde fuera de casa, establece un password!
-- Abre el puerto 8000 para administrar PyLoad desde fuera de casa, establece un password!
-- Abre los puertos 6889 hasta 7000 para aumentar la velocidad de Quasar
-- Abre los puertos 62062, 9000 y 9001 para aumentar la velocidad de Plexus-Streams
+- Configura una **IP manual** a tu Raspberry
+- Abre el puerto **51413** para aumentar la velocidad de **Transmission** (torrents)
+- Abre el puerto **9091** para administrar **Transmission** desde fuera de casa, establece un password!
+- Abre el puerto **8000** para administrar **PyLoad** desde fuera de casa, establece un password!
+- Abre el puerto **6881** para aumentar la velocidad de **Torrenter**
+- Abre los puertos **6889 hasta 7000** para aumentar la velocidad de **Quasar**
+- Abre los puertos **62062, 9000 y 9001** para aumentar la velocidad de **Plexus-Streams**
 
 Todos esos puertos deberás abrirlos en tu router (NAT). Otra opción más sencilla sería configurar DMZ contra la ip fija de tu raspberry:
 
@@ -195,9 +198,6 @@ Puedes controlar remotamente Kodi usando el mando de tu TV (siempre y cuando sea
 
 
 #Cosas que me falta escribir:
-- Recomendaciones
-- Puertos router
-- App para controlar Kodi desde smartphone
 - Plex
 - Acceso por Samba (SMB)
 - Uso del nuevo pelisalacarta (libtorrent)
