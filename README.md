@@ -178,6 +178,13 @@ El usuario por defecto es **root** y password **root**. En el menu superior pued
 
 ![](http://i.imgur.com/o8A62oq.png)
 
+# Acceder por Samba (SMB)
+El servicio samba está habilitado por defecto, se han compartido las principales carpetas para que puedas acceder desde cualquier equipo de tu red:
+
+![](http://i.imgur.com/esv0wx3.png)
+
+Para ello simplemente escribe la dirección \\MEDIACENTER-V6 o \\192.168.1.100 (la IP de tu Raspberry). Desde aquí podrás transferir ficheros y configuraciones, así como roms de juegos para RetroPie
+
 # Recomendaciones
 - Configura una **IP manual** a tu Raspberry
 - Abre el puerto **51413** para aumentar la velocidad de **Transmission** (torrents)
@@ -195,12 +202,85 @@ Puedes controlar remotamente Kodi usando el mando de tu TV (siempre y cuando sea
 
 ![](http://i.imgur.com/Or9Ofnx.png)
 
+# Pelisalacarta: Visualizar pelísculas en streaming
+Dentro de Kodi dispones del addon pelisalacarta (en versión UI o normal). Te recomiendo que explores por canales, a veces el buscador va algo lento. Mi provider favorito es EliteTorrent (puedes utilizar el que quieras), selecciona una película, pulsa `Ver el vídeo magnet: [torrent]`:
+
+![]()
+
+Dispondrás de 5 servicios para descargar y visualizar el torrent. Mi favorito es Quasar y XBMCtorrent, a cada usuario le funciona mejor uno u otro, usa el que más te guste. Ésta nueva versión incluye 2 clientes internos basados en libtorrent, yo los he probado y no me han funcionado demasiado bien.
+
+# Jugar con los emuladores (RetroPie)
+*Primero de todo necesitarás copiar alguna rom para jugar, la carpeta por defecto es `/root/RetroPie/roms/`, si no copias ninguna rom, no te aparecerán los emuladores para jugar!*
+
+Desde el menu de Kodi puedes ejecutar Emulationstation (el menu de RetroPie) para jugar a juegos y emuladores. Si estás en la consola puedes escribir el comando `emulationstation` directamente. La primera vez que accedas te detectará el controlador/joystick que tengas (o el teclado USB), sigue el tutorial para configurar los botones.
+
+![](https://cloud.githubusercontent.com/assets/10035308/7110173/0f2ea784-e16a-11e4-9c6f-5fe7c594b05a.png)
+![](http://i.imgur.com/Dx3Tqw7.jpg)
+
+Una vez dentro tendrás un menú con 2 sistemas (Steam + RetroPie) y tantos emuladores como roms diferentes hayas copiado. Tienes que copiar las roms antes de ejecutar emulationstation para que las detecte correctamente.
+
+![](http://i.imgur.com/j9ruih6.jpg)
+
+Por defecto las roms no vienen identificadas, tendrás que scrapear la información. Pulsamos start y seleccionamos el menu de scraper. Automáticamente buscará cada rom en internet y nos preguntará que información queremos usar en cada rom, tras finalizar el aspecto de nuestro emulador de SuperNintendo será más profesional:
+
+![](http://i.imgur.com/94JhBUL.jpg)
+
+El uso de los emuladores es fácil e intuitivo. A continuación os dejo un par de resumenes para que aprendáis las combinaciones de teclas. Para salir de un juego hay que pulsar Start+Select a la vez.
+
+![](http://i.imgur.com/I6XZ19a.png)
+
+Desde el menú RetroPie podrás cambiar todas las configuraciones de los emuladores. Desde el menú Steam podrás ejecutar juegos en streaming desde tu PC/Steam (lo explicaré más adelante).
+
+# Juegos de PC STEAM (Moonlight)
+Seguimos con los juegos, ahora toca hablar de Moonlight. Si tienes la suerte de tener un PC con una tarjeta gráfica de la serie NVIDIA 600 (o superior) podrás juegas a los juegos de tu PC directamente en tu Raspberry! Toda tu biblioteca de Steam y cualquier otro juego que tengas fuera de Steam podrá ser jugado en tu salón desde la Raspberry, empecemos:
+
+Instala NVIDIA GeForce Experience 2.11.4.0  
+Asegurate que tu GFE está capacitado para el protocolo SHIELD (es el streaming). Entra en la configuración y añade cualquier ruta adicional para indicar a tu GFE donde guardas los juegos, yo lo tengo así:
+
+![](http://i.imgur.com/VVfVSHC.png)
+
+Ahora vuelve a tu RPi y desde consola empareja tu RPi con GFE, usa el siguiente comando:
+
+    moonlight pair
+
+Se generará un certificado y un código numérico de 4 cifras, ve a tu PC y añade el codigo en el recuadro correspondiente:
+
+![](http://i.imgur.com/DYmlxn8.png)
+
+Vuelve a tu RPi y la verás correctamente emparejada, ahora puedes listar los juegos que tienes instalados, usa el comando:
+
+    moonlight list
+    
+![]()
+
+Antes de lanzarte a jugar, es recomendable que configures tu joystick. Algunos juegos no serán compatibles con un mando y requieren de Teclado y ratón. En esos juegos puedes lanzar el stream directamente pues el teclado y ratón no requieren ninguna configuración previa. Para configurar nuestro mando de XBOX 360 usb lanzaremos el siguiente comando:
+
+    moonlight map /root/xbox.map
+
+![]()
+
+Completa las indicaciones al pie de la letra y tendrás tu mando correctamente configurado. Ahora ya podemos lanzar moonlight usando nuestro "mapping" personalizado del mando, la sintaxis sería:
+
+    moonlight stream -mapping /root/xbox.map
+
+![](http://i.imgur.com/mlv2u6y.jpg)
+
+Disponemos de varios parametros para personalizar moonlight, por ejemplo podemos arrancar a 30fps o 60fps, 720 o 1080, etc... Si queremos lanzar un juego que tenemos en el listado pero no en Steam haremos lo siguiente:
+
+    moonlight stream -mapping /root/xbox.map -app "League of Legends"
+
+El resultado es impecable:
+
+![](http://i.imgur.com/xISo1l6.jpg)
+![](http://i.imgur.com/I8nBbDp.jpg)
+![](http://i.imgur.com/NI09B6p.jpg)
+![](http://i.imgur.com/uGeJZil.jpg)
+
+FALTA AÑADIR COMO MODIFICAR EL LAUNCHER DE EMULATIONSTATION
 
 
 #Cosas que me falta escribir:
 - Plex
-- Acceso por Samba (SMB)
-- Uso del nuevo pelisalacarta (libtorrent)
 - RetroPie, Emulationstation y emuladores
 - Configuración del mando xbox360usb
 - Copiar roms y bios
