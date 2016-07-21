@@ -41,6 +41,18 @@ Válido **RaspberryPi 2** y **RaspberryPi 3**
 - SuperRepo
 - TVAddons
 
+**VIDEO**
+- Catoal -> Canales de TV en streaming, contenido nacional e internacional
+- AdryanList -> Canales de TV en streaming, contenido nacional e internacional
+- pelisalacarta -> El mejor addon para ver películas, con acceso a EliteTorrent, Divxatope, ...
+- Quasar -> El mejor reproductor, visualiza contenido sin esperar a completar la descarga
+- Plexus-Streams -> Reproductor de enlaces AceStream y SopCast, para contenido deportivo
+- tvalacarta -> Acceso a todo el contenido de la TV bajo demanda (a la carta)
+- PleXBMC -> Cliente de Plex para Kodi, gestiona y visualiza toda tu biblioteca Plex
+- XBMCtorrent -> Igual que Quasar, permite ver contenido torrent sin esperar a descargar
+- Torrenter -> Igual que Quasar, permite ver contenido torrent sin esperar a descargar
+- YouTube -> Cliente para visualizar videos de Youtube, reproduce contenido VEVO también
+
 **PROGRAMAS**
 - AddonInstaller -> Instalador gráfico de addons
 - Desktop -> Cierra Kodi y ejecuta el escritorio XCFE
@@ -55,23 +67,6 @@ Válido **RaspberryPi 2** y **RaspberryPi 3**
 - TuneIn Radio -> Acceso a cualquier radio online de todo el mundo, música en directo
 - MP3 Streams -> Reproductor de musica en streaming, es un clon ruso de Spotify
 
-**VIDEO**
-- Catoal -> Canales de TV en streaming, contenido nacional e internacional
-- AdryanList -> Canales de TV en streaming, contenido nacional e internacional
-- pelisalacarta -> El mejor addon para ver películas, con acceso a EliteTorrent, Divxatope, ...
-- Quasar -> El mejor reproductor, visualiza contenido sin esperar a completar la descarga
-- Plexus-Streams -> Reproductor de enlaces AceStream y SopCast, para contenido deportivo
-- tvalacarta -> Acceso a todo el contenido de la TV bajo demanda (a la carta)
-- PleXBMC -> Cliente de Plex para Kodi, gestiona y visualiza toda tu biblioteca Plex
-- XBMCtorrent -> Igual que Quasar, permite ver contenido torrent sin esperar a descargar
-- Torrenter -> Igual que Quasar, permite ver contenido torrent sin esperar a descargar
-- YouTube -> Cliente para visualizar videos de Youtube, reproduce contenido VEVO también
-
-**SCRAPERS**
-- The Movie atabase
-- The TVDB
-Los scrapers descargan automáticamente la información, portada, sinopsis, reparto, puntuaciones, .... de cualquier película o serie que visualicemos
-
 **SUBTITULOS**
 - Addic7ed.com
 - OpenSubtitles.org
@@ -80,6 +75,11 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 
 **LETRAS/LYRIC**
 - CU LRC Lyrics
+
+**SCRAPERS**
+- The Movie atabase
+- The TVDB
+Los scrapers descargan automáticamente la información, portada, sinopsis, reparto, puntuaciones, .... de cualquier película o serie que visualicemos
 
 # Más información
 - Viene todo preconfigurado para **enchufar y usar**
@@ -163,7 +163,7 @@ Salva los cambios en el fichero `settings.json` pulsando las teclas: <kbd>CTRL</
 El daemon de Transmission estará activo en el **puerto 9091**, con usuario y password **root**. Podrás comprobar el daemon si accedes a través de un explorador web a la dirección http://ip_raspberry:9091, por ejemplo **http://192.168.1.100:9091** Pulsamos el botón de configuración *llave inglesa* para editar las preferencias. La configuración de descargas está configurado para ser lo más óptima posible. Encontrarás agregada una URL de **ip-block** para mejorar la descarga de ficheros torrents en transmission. Puedes controlar transmission desde tu smartphone, hay una [app](https://play.google.com/store/apps/details?id=com.neogb.rtac&hl=es) para ello (también en iOS). 
 
 #PASO 5: Configurar PyLoad (opcional)
-**PyLoad** es un programa que permite transformar tu Raspberry en un servidor de **descargas directas**. El daemon de PyLoad está instalado y configurado, pero **se encuentra deshabilitado por defecto** ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar PyLoad... sigue leyendo:
+**PyLoad** es un programa que permite transformar tu Raspberry en un servidor de **descargas directas**. El daemon de **PyLoad** está instalado y configurado, pero **se encuentra deshabilitado por defecto** ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar **PyLoad**... sigue leyendo:
 
 Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la **Raspberry**. Edita el fichero de auto-arranque **cron** con el comando:
 
@@ -171,129 +171,18 @@ Primero de todo vamos a configurar el daemon para que se auto-ejecute al encende
 
 Nos situamos en la parte inferior, localiza la línea `#@reboot pyLoadCore -daemon` y quita el **comentario** del principio, deberá quedar asi: `@reboot pyLoadCore --daemon` (**tienes que poner los 2 guiones delante de la palabra daemon**). Salva los cambios pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>
 
-Tendrás que reiniciar tu Raspberry para tener el daemon de pyLoad en ejecución, recuerda que Kodi se enciende automáticamente, deberás cerrarlo para volver a la consola.
+Tendrás que reiniciar tu Raspberry para tener el daemon de pyLoad en ejecución, recuerda que **Kodi** se enciende automáticamente, deberás cerrarlo para volver a la consola.
 
-Accedemos a PyLoad a través de un explorador web usando el **puerto 8000**, por ejemplo: **http://192.168.1.100:8000**  
+Accedemos a **PyLoad** a través de un explorador web usando el **puerto 8000**, por ejemplo: **http://192.168.1.100:8000**  
 El usuario por defecto es **root** y password **root**. En el menu superior puedes *administrar* el usuario y cambiar el password (recomendado), justo abajo encontrarás la *configuración* donde podrás editar la configuración, los plugins de captchas etc... y añadir cualquier cuenta premium que poseas de los diferentes hosts.
 
 ![](http://i.imgur.com/o8A62oq.png)
 
-# Acceder por Samba (SMB)
-El servicio samba está habilitado por defecto, se han compartido las principales carpetas para que puedas acceder desde cualquier equipo de tu red:
-
-![](http://i.imgur.com/esv0wx3.png)
-
-Para ello simplemente escribe la dirección \\\\MEDIACENTER-V6 o \\\\192.168.1.100 (la IP de tu Raspberry). Desde aquí podrás transferir ficheros y configuraciones, así como roms de juegos para RetroPie
-
-# Recomendaciones
-- Configura una **IP manual** a tu Raspberry
-- Abre el puerto **51413** para aumentar la velocidad de **Transmission** (torrents)
-- Abre el puerto **9091** para administrar **Transmission** desde fuera de casa, establece un password!
-- Abre el puerto **8000** para administrar **PyLoad** desde fuera de casa, establece un password!
-- Abre el puerto **6881** para aumentar la velocidad de **Torrenter**
-- Abre los puertos **6889 hasta 7000** para aumentar la velocidad de **Quasar**
-- Abre los puertos **62062, 9000 y 9001** para aumentar la velocidad de **Plexus-Streams**
-
-Todos esos puertos deberás abrirlos en tu router (NAT). Otra opción más sencilla sería configurar DMZ contra la ip fija de tu raspberry:
-
-![](http://i.imgur.com/WqyCmzC.png)
-
-Puedes controlar remotamente Kodi usando el mando de tu TV (siempre y cuando sea CEC compatible). Si tu TV no es CEC, puedes descargar una [app para tu smartphone](https://itunes.apple.com/es/app/official-kodi-remote/id520480364?mt=8):
-
-![](http://i.imgur.com/Or9Ofnx.png)
-
-# Pelisalacarta: Visualizar pelísculas en streaming
-Dentro de Kodi dispones del addon pelisalacarta (en versión UI o normal). Te recomiendo que explores por canales, a veces el buscador va algo lento. Mi provider favorito es EliteTorrent (puedes utilizar el que quieras), selecciona una película, pulsa `Ver el vídeo magnet: [torrent]`:
-
-![](http://imgur.com/OsgUCKn.png)
-
-Dispondrás de 5 servicios para descargar y visualizar el torrent. Mi favorito es Quasar y XBMCtorrent, a cada usuario le funciona mejor uno u otro, usa el que más te guste. Ésta nueva versión incluye 2 clientes internos basados en libtorrent, yo los he probado y no me han funcionado demasiado bien.
-
-# Jugar con los emuladores (RetroPie)
-*Primero de todo necesitarás copiar alguna rom para jugar, la carpeta por defecto es `/root/RetroPie/roms/`, si no copias ninguna rom, no te aparecerán los emuladores para jugar!*
-
-Desde el menu de Kodi puedes ejecutar Emulationstation (el menu de RetroPie) para jugar a juegos y emuladores. Si estás en la consola puedes escribir el comando `emulationstation` directamente. La primera vez que accedas te detectará el controlador/joystick que tengas (o el teclado USB), sigue el tutorial para configurar los botones.
-
-![](https://cloud.githubusercontent.com/assets/10035308/7110173/0f2ea784-e16a-11e4-9c6f-5fe7c594b05a.png)
-![](http://i.imgur.com/Dx3Tqw7.jpg)
-
-Una vez dentro tendrás un menú con 2 sistemas (Steam + RetroPie) y tantos emuladores como roms diferentes hayas copiado. Tienes que copiar las roms antes de ejecutar emulationstation para que las detecte correctamente.
-
-![](http://i.imgur.com/j9ruih6.jpg)
-
-Por defecto las roms no vienen identificadas, tendrás que scrapear la información. Pulsamos start y seleccionamos el menu de scraper. Automáticamente buscará cada rom en internet y nos preguntará que información queremos usar en cada rom, tras finalizar el aspecto de nuestro emulador de SuperNintendo será más profesional:
-
-![](http://i.imgur.com/94JhBUL.jpg)
-
-El uso de los emuladores es fácil e intuitivo. A continuación os dejo un par de resumenes para que aprendáis las combinaciones de teclas. Para salir de un juego hay que pulsar Start+Select a la vez.
-
-![](http://i.imgur.com/I6XZ19a.png)
-
-Desde el menú RetroPie podrás cambiar todas las configuraciones de los emuladores. Desde el menú Steam podrás ejecutar juegos en streaming desde tu PC/Steam (lo explicaré más adelante).
-
-# Juegos de PC STEAM (Moonlight)
-Seguimos con los juegos, ahora toca hablar de Moonlight. Si tienes la suerte de tener un PC con una tarjeta gráfica de la serie NVIDIA 600 (o superior) podrás juegas a los juegos de tu PC directamente en tu Raspberry! Toda tu biblioteca de Steam y cualquier otro juego que tengas fuera de Steam podrá ser jugado en tu salón desde la Raspberry, empecemos:
-
-Instala NVIDIA GeForce Experience 2.11.4.0  
-Asegurate que tu GFE está capacitado para el protocolo SHIELD (es el streaming). Entra en la configuración y añade cualquier ruta adicional para indicar a tu GFE donde guardas los juegos, yo lo tengo así:
-
-![](http://i.imgur.com/VVfVSHC.png)
-
-Ahora vuelve a tu RPi y desde consola empareja tu RPi con GFE, usa el siguiente comando:
-
-    moonlight pair
-
-![](http://imgur.com/tajfTrE.png)
-
-Se generará un certificado y un código numérico de 4 cifras, ve a tu PC y añade el codigo en el recuadro correspondiente:
-
-![](http://i.imgur.com/DYmlxn8.png)
-
-Vuelve a tu RPi y la verás correctamente emparejada, ahora puedes listar los juegos que tienes instalados, usa el comando:
-
-    moonlight list
-    
-![](http://imgur.com/eqTUaiS.png)
-
-Antes de lanzarte a jugar, es recomendable que configures tu joystick. Algunos juegos no serán compatibles con un mando y requieren de Teclado y ratón. En esos juegos puedes lanzar el stream directamente pues el teclado y ratón no requieren ninguna configuración previa. Para configurar nuestro mando de XBOX 360 usb lanzaremos el siguiente comando:
-
-    moonlight map /root/xbox.map
-
-![](http://imgur.com/guGywR0.png)
-
-Completa las indicaciones al pie de la letra y tendrás tu mando correctamente configurado. Ahora ya podemos lanzar moonlight usando nuestro "mapping" personalizado del mando, la sintaxis sería:
-
-    moonlight stream -mapping /root/xbox.map
-
-![](http://i.imgur.com/mlv2u6y.jpg)
-
-Disponemos de varios parametros para personalizar moonlight, por ejemplo podemos arrancar a 30fps o 60fps, 720 o 1080, etc... Si queremos lanzar un juego que tenemos en el listado pero no en Steam haremos lo siguiente:
-
-    moonlight stream -mapping /root/xbox.map -app "League of Legends"
-
-Para evitar introducir comandos, encontrarás un emulador llamado Steam dentro de RetroPie/Emulationstation, dicho emulador tiene 4 scripts para lanzar Steam con resolución 720, 1080, 30fps o 60fps. Los scripts funcionan tal cual, pero si has creado un fichero *.map para tu controlador/joystick sería bueno que edites los 4 ficheros y añadas al final el texto `-mapping /root/xbox.map`
-
-Los 4 ficheros están en la ruta `/root/RetroPie/roms/moonlight`, puedes editarlos desde la consola de la Raspberry, por SSH/Putty o accediendo por samba: \\\\192.168.1.100\\roms\\moonlight o \\\\MEDIACENTER-V6\\roms\\moonlight  
-Añade al final el comando -mapping y la ruta del *.map, a mi me ha quedado así:
-
-    moonlight stream -1080 -60fps -app Steam -mapping /root/xbox.map
-
-Haz lo mismo para los 4 ficheros. Por último ejecuta el siguiente coamdno para dar permisos:
-
-    chmod +x /root/RetroPie/roms/moonlight/*
-
-El resultado es impecable:
-
-![](http://i.imgur.com/xISo1l6.jpg)
-![](http://i.imgur.com/I8nBbDp.jpg)
-![](http://i.imgur.com/NI09B6p.jpg)
-![](http://i.imgur.com/uGeJZil.jpg)
-
 # PASO 6: Overclocking (opcional)
-Recomiendo habilitar un poco de overclock, conseguirás más fluidez al moverte por los menús de Kodi y potenciarás notablemente el rendimiento a la hora de jugar a emuladores. Tu CPU podrá realizar cálculos más rápidos y el acceso a la memoria ram o al disco microSD tendrán tiempos de respuesta más bajos.  
-Recomiendo encarecidamente que utilices algún método de ventilación/refrigeración para evitar alcanzar los 85ºC, ya que la RPi bajará su velocidad si alcanza esa temperatura
+Recomiendo habilitar un poco de **overclock**, conseguirás más fluidez al moverte por los menús de **Kodi** y potenciarás notablemente el rendimiento a la hora de jugar a emuladores. Tu **CPU** podrá realizar cálculos más rápidos y el acceso a la memoria **ram** o al disco **microSD** tendrán tiempos de respuesta más bajos.  
+Recomiendo encarecidamente que utilices algún método de **ventilación/refrigeración** para evitar alcanzar los **85ºC**, ya que la **RPi** bajará su velocidad si alcanza esa temperatura
 
-Si quieres puedes ejecutar un benchmark (diagnóstico) para testear tu nivel de overclock, ejecuta el siguiente comando:
+Si quieres puedes ejecutar un **benchmark** (diagnóstico) para testear tu nivel de overclock, ejecuta el siguiente comando:
 
     curl https://raw.githubusercontent.com/aikoncwd/rpi-benchmark/master/rpi-benchmark.sh | sudo bash
 
@@ -380,28 +269,139 @@ Edita tu fichero `/boot/config.txt` y pega el siguiente código, puedes ajustar 
     dtparam=audio=on
     dtparam=spi=on
 
-Encontrarás un script llamado bcmstat que permite medir con exactitud el estado del hardware de tu Raspberry, podrás ver a que velocidad va tu CPU y a que temperatura está, para ello ejecuta:
+Encontrarás un script llamado **bcmstat** que permite medir con exactitud el estado del hardware de tu Raspberry, podrás ver a que velocidad va tu **CPU** y a que **temperatura** está, para ello ejecuta:
 
     /root/bcmstat.sh
 
 ![](http://imgur.com/o8I3dXw.png)
 
+# Acceder por Samba (SMB)
+El servicio **samba** está habilitado por defecto, se han compartido las principales carpetas para que puedas acceder desde cualquier equipo de tu **red**:
+
+![](http://i.imgur.com/esv0wx3.png)
+
+Para ello simplemente escribe la dirección **\\\\MEDIACENTER-V6** o **\\\\192.168.1.100** (la IP de tu Raspberry). Desde aquí podrás transferir ficheros y configuraciones, así como **roms de juegos** para RetroPie
+
+# Recomendaciones
+- Configura una **IP manual** a tu Raspberry
+- Abre el puerto **51413** para aumentar la velocidad de **Transmission** (torrents)
+- Abre el puerto **9091** para administrar **Transmission** desde fuera de casa, establece un password!
+- Abre el puerto **8000** para administrar **PyLoad** desde fuera de casa, establece un password!
+- Abre el puerto **6881** para aumentar la velocidad de **Torrenter**
+- Abre los puertos **6889 hasta 7000** para aumentar la velocidad de **Quasar**
+- Abre los puertos **62062, 9000 y 9001** para aumentar la velocidad de **Plexus-Streams**
+
+Todos esos puertos deberás abrirlos en tu router (**NAT**). Otra opción más sencilla sería configurar **DMZ** contra la ip fija de tu raspberry:
+
+![](http://i.imgur.com/WqyCmzC.png)
+
+Puedes controlar remotamente **Kodi** usando el mando de tu TV (siempre y cuando sea **CEC** compatible). Si tu TV no es **CEC**, puedes descargar una [app para tu smartphone](https://itunes.apple.com/es/app/official-kodi-remote/id520480364?mt=8):
+
+![](http://i.imgur.com/Or9Ofnx.png)
+
+# Pelisalacarta: Visualizar pelísculas en streaming
+Dentro de **Kodi** dispones del addon **pelisalacarta** (en versión **UI** o normal). Te recomiendo que explores por canales, a veces el buscador va algo lento. Mi provider favorito es **EliteTorrent** (puedes utilizar el que quieras), selecciona una película, pulsa `Ver el vídeo magnet: [torrent]`
+
+![](http://imgur.com/OsgUCKn.png)
+
+Dispondrás de **5** servicios para descargar y visualizar el torrent. Mi favorito es **Quasar** y **XBMCtorrent**, a cada usuario le funciona mejor uno u otro, usa el que más te guste. Ésta nueva versión incluye 2 clientes internos basados en **libtorrent**, yo los he probado y no me han funcionado demasiado bien.
+
+# Jugar con los emuladores (RetroPie)
+*Primero de todo necesitarás copiar alguna rom para jugar, la carpeta por defecto es `/root/RetroPie/roms/`, si no copias ninguna rom, no te aparecerán los emuladores para jugar!*
+
+Desde el menu de **Kodi** puedes ejecutar **Emulationstation** (el menu de **RetroPie**) para jugar a juegos y emuladores. Si estás en la consola puedes escribir el comando `emulationstation` directamente. La primera vez que accedas te detectará el controlador/joystick que tengas (o el teclado USB), sigue el tutorial para configurar los botones.
+
+![](https://cloud.githubusercontent.com/assets/10035308/7110173/0f2ea784-e16a-11e4-9c6f-5fe7c594b05a.png)
+![](http://i.imgur.com/Dx3Tqw7.jpg)
+
+Una vez dentro tendrás un menú con 2 sistemas (**Steam + RetroPie**) y tantos emuladores como roms diferentes hayas copiado. Tienes que copiar las roms antes de ejecutar emulationstation para que las detecte correctamente.
+
+![](http://i.imgur.com/j9ruih6.jpg)
+
+Por defecto las roms no vienen identificadas, tendrás que **scrapear** la información. Pulsamos <kbd>start</kbd> y seleccionamos el menu de **scraper**. Automáticamente buscará cada rom en internet y nos preguntará que información queremos usar en cada rom, tras finalizar el aspecto de nuestro emulador de **SuperNintendo** será más profesional:
+
+![](http://i.imgur.com/94JhBUL.jpg)
+
+El uso de los emuladores es fácil e intuitivo. A continuación os dejo un par de resumenes para que aprendáis las combinaciones de teclas. Para salir de un juego hay que pulsar <kbd>Start</kbd> + <kbd>Select</kbd> a la vez.
+
+![](http://i.imgur.com/I6XZ19a.png)
+
+Desde el menú **RetroPie** podrás cambiar todas las configuraciones de los emuladores. Desde el menú **Steam** podrás ejecutar juegos en streaming desde tu **PC/Steam** (lo explicaré más adelante).
+
+# Juegos de PC STEAM (Moonlight)
+Seguimos con los juegos, ahora toca hablar de **Moonlight**. Si tienes la suerte de tener un PC con una tarjeta gráfica de la serie **NVIDIA 600** (o superior) podrás juegas a los juegos de tu **PC** directamente en tu Raspberry! Toda tu biblioteca de **Steam** y cualquier otro juego que tengas fuera de **Steam** podrá ser jugado en tu salón desde la Raspberry, empecemos:
+
+Instala **NVIDIA GeForce Experience 2.11.4.0**  
+Asegurate que tu **GFE** está capacitado para el protocolo **SHIELD** (es el streaming). Entra en la configuración y añade cualquier ruta adicional para indicar a tu **GFE** donde guardas los juegos, yo lo tengo así:
+
+![](http://i.imgur.com/VVfVSHC.png)
+
+Ahora vuelve a tu **RPi** y desde consola empareja tu **RPi** con **GFE**, usa el siguiente comando:
+
+    moonlight pair
+
+![](http://imgur.com/tajfTrE.png)
+
+Se generará un certificado y un **código numérico de 4 cifras**, ve a tu **PC** y añade el codigo en el recuadro correspondiente:
+
+![](http://i.imgur.com/DYmlxn8.png)
+
+Vuelve a tu **RPi** y la verás correctamente emparejada, ahora puedes **listar** los juegos que tienes instalados, usa el comando:
+
+    moonlight list
+    
+![](http://imgur.com/eqTUaiS.png)
+
+Antes de lanzarte a jugar, es recomendable que configures tu **joystick**. Algunos juegos no serán compatibles con un mando y requieren de Teclado y ratón. En esos juegos puedes lanzar el stream directamente pues el teclado y ratón no requieren ninguna configuración previa. Para configurar nuestro mando de **XBOX 360 usb** lanzaremos el siguiente comando:
+
+    moonlight map /root/xbox.map
+
+![](http://imgur.com/guGywR0.png)
+
+Completa las indicaciones al pie de la letra y tendrás tu mando correctamente configurado. Ahora ya podemos lanzar **moonlight** usando nuestro *mapping* personalizado del mando, la sintaxis sería:
+
+    moonlight stream -mapping /root/xbox.map
+
+![](http://i.imgur.com/mlv2u6y.jpg)
+
+Disponemos de varios parametros para personalizar **moonlight**, por ejemplo podemos arrancar a **30fps o 60fps, 720 o 1080**, etc... Si queremos lanzar un juego que tenemos en el listado pero no en **Steam** haremos lo siguiente:
+
+    moonlight stream -mapping /root/xbox.map -app "League of Legends"
+
+Para evitar introducir comandos, encontrarás un emulador llamado **Steam** dentro de **RetroPie/Emulationstation**, dicho emulador tiene **4 scripts** para lanzar Steam con **resolución 720, 1080, 30fps o 60fps**. Los scripts funcionan tal cual, pero si has creado un fichero **\*.map** para tu controlador/joystick sería bueno que edites los **4** ficheros y añadas al final el texto `-mapping /root/xbox.map`
+
+Los 4 ficheros están en la ruta `/root/RetroPie/roms/moonlight`, puedes editarlos desde la **consola** de la Raspberry, por **SSH/Putty** o accediendo por samba: \\\\192.168.1.100\\roms\\moonlight o \\\\MEDIACENTER-V6\\roms\\moonlight  
+Añade al final el comando **-mapping** y la ruta del *.map, a mi me ha quedado así:
+
+    moonlight stream -1080 -60fps -app Steam -mapping /root/xbox.map
+
+Haz lo mismo para los **4 ficheros**. Por último ejecuta el siguiente coamdno para dar permisos:
+
+    chmod +x /root/RetroPie/roms/moonlight/*
+
+El resultado es impecable:
+
+![](http://i.imgur.com/xISo1l6.jpg)
+![](http://i.imgur.com/I8nBbDp.jpg)
+![](http://i.imgur.com/NI09B6p.jpg)
+![](http://i.imgur.com/uGeJZil.jpg)
+
 # Estación de trabajo: XFCE Desktop
-Ésta imagen incluye un escritorio muy muy ligero pero funcional al 100%, se ha cuidado una estética minimalista. En el menú superior podrás encontrar software variado organizado por categorías. La consola (terminal) arranca con tmux por defecto, podrás partir tu área de trabajo y ejecutar diferentes aplicaciones a la vez, aquí os dejo un ejemplo con un cliente IRC (irssi), un juego dungeon crawler (crawl) y el reloj:
+Ésta imagen incluye un **escritorio** muy muy ligero pero funcional al 100%, se ha cuidado una estética minimalista. En el menú superior podrás encontrar software variado organizado por categorías. La consola (terminal) arranca con **tmux** por defecto, podrás partir tu área de trabajo y ejecutar diferentes aplicaciones a la vez, aquí os dejo un ejemplo con un cliente **IRC** (irssi), un juego **dungeon crawler** (crawl) y el **reloj**:
 
 ![](http://imgur.com/FigSpJq.png)
 
-El programa principal del desktop es Firefox, el conocido navegador web disponible ahora en tu Raspberry. Con soporte HTML5 y compatible con Youtube:
+El programa principal del desktop es **Firefox**, el conocido navegador web disponible ahora en tu Raspberry. Con soporte **HTML5** y compatible con **Youtube**:
 
 ![](http://imgur.com/BwMr0lC.png)
 
 # Software para la consola
-La imagen incluye una pequeña selección personal de herramientas y utilidades para la consola:
-- tmux: Multiplexor de terminales, permite dividir la consola
-- irssi: Cliente IRC en consola
-- crawl: Juego tipo dungeon crawler para la consola
-- htop: Process Manager, para gestionar procesos y recursos
-- wavemon: Monitor de redes wifi, gráficos de señal, etc...
+La imagen incluye una pequeña selección personal de **herramientas y utilidades** para la consola:
+- **tmux**: Multiplexor de terminales, permite dividir la consola
+- **irssi**: Cliente IRC en consola
+- **crawl**: Juego tipo dungeon crawler para la consola
+- **htop**: Process Manager, para gestionar procesos y recursos
+- **wavemon**: Monitor de redes wifi, gráficos de señal, etc...
 
 ![](http://imgur.com/wTmefDn.png)
 
