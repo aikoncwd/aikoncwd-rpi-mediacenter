@@ -30,7 +30,7 @@
 Recomiendo hacer el montaje usando **cable de red ethernet**. Si no disponemos de conexión por cable en el salón, podemos realizar el montaje usando el **wifi** integrado de la Raspberry 3, pero no lo recomiendo ya que el streaming se podría cortar.
 
 # Contenido del MediaCenter
-**Mediacenter Kodi 16.1 Jarvis**, *compilación arm7*
+**Mediacenter Kodi 16.1 Jarvis**, *compilación arm7*  
 Válido **RaspberryPi 2** y **RaspberryPi 3**
 
 **REPOSITORIOS**
@@ -174,6 +174,24 @@ Accedemos a PyLoad a través de un explorador web usando el **puerto 8000**, por
 El usuario por defecto es **root** y password **root**. En el menu superior puedes *administrar* el usuario y cambiar el password (recomendado), justo abajo encontrarás la *configuración* donde podrás editar la configuración, los plugins de captchas etc... y añadir cualquier cuenta premium que poseas de los diferentes hosts.
 
 ![](http://i.imgur.com/o8A62oq.png)
+
+# Recomendaciones
+- Configura una IP manual a tu Raspberry
+- Abre el puerto 51413 para aumentar la velocidad de Transmission (torrents)
+- Abre el puerto 9091 para administrar Transmission desde fuera de casa, establece un password!
+- Abre el puerto 8000 para administrar PyLoad desde fuera de casa, establece un password!
+- Abre los puertos 6889 hasta 7000 para aumentar la velocidad de Quasar
+- Abre los puertos 62062, 9000 y 9001 para aumentar la velocidad de Plexus-Streams
+
+Todos esos puertos deberás abrirlos en tu router (NAT). Otra opción más sencilla sería configurar DMZ contra la ip fija de tu raspberry:
+
+![](http://i.imgur.com/WqyCmzC.png)
+
+Puedes controlar remotamente Kodi usando el mando de tu TV (siempre y cuando sea CEC compatible). Si tu TV no es CEC, puedes descargar una [app para tu smartphone](https://itunes.apple.com/es/app/official-kodi-remote/id520480364?mt=8):
+
+![](http://i.imgur.com/Or9Ofnx.png)
+
+
 
 #Cosas que me falta escribir:
 - Recomendaciones
