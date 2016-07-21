@@ -205,7 +205,7 @@ Puedes controlar remotamente Kodi usando el mando de tu TV (siempre y cuando sea
 # Pelisalacarta: Visualizar pelísculas en streaming
 Dentro de Kodi dispones del addon pelisalacarta (en versión UI o normal). Te recomiendo que explores por canales, a veces el buscador va algo lento. Mi provider favorito es EliteTorrent (puedes utilizar el que quieras), selecciona una película, pulsa `Ver el vídeo magnet: [torrent]`:
 
-![]()
+![](http://imgur.com/OsgUCKn.png)
 
 Dispondrás de 5 servicios para descargar y visualizar el torrent. Mi favorito es Quasar y XBMCtorrent, a cada usuario le funciona mejor uno u otro, usa el que más te guste. Ésta nueva versión incluye 2 clientes internos basados en libtorrent, yo los he probado y no me han funcionado demasiado bien.
 
@@ -243,6 +243,8 @@ Ahora vuelve a tu RPi y desde consola empareja tu RPi con GFE, usa el siguiente 
 
     moonlight pair
 
+![](http://imgur.com/tajfTrE.png)
+
 Se generará un certificado y un código numérico de 4 cifras, ve a tu PC y añade el codigo en el recuadro correspondiente:
 
 ![](http://i.imgur.com/DYmlxn8.png)
@@ -251,13 +253,13 @@ Vuelve a tu RPi y la verás correctamente emparejada, ahora puedes listar los ju
 
     moonlight list
     
-![]()
+![](http://imgur.com/eqTUaiS.png)
 
 Antes de lanzarte a jugar, es recomendable que configures tu joystick. Algunos juegos no serán compatibles con un mando y requieren de Teclado y ratón. En esos juegos puedes lanzar el stream directamente pues el teclado y ratón no requieren ninguna configuración previa. Para configurar nuestro mando de XBOX 360 usb lanzaremos el siguiente comando:
 
     moonlight map /root/xbox.map
 
-![]()
+![](http://imgur.com/guGywR0.png)
 
 Completa las indicaciones al pie de la letra y tendrás tu mando correctamente configurado. Ahora ya podemos lanzar moonlight usando nuestro "mapping" personalizado del mando, la sintaxis sería:
 
@@ -287,7 +289,7 @@ El resultado es impecable:
 ![](http://i.imgur.com/NI09B6p.jpg)
 ![](http://i.imgur.com/uGeJZil.jpg)
 
-# PASO 0: Overclocking
+# PASO 6: Overclocking (opcional)
 Recomiendo habilitar un poco de overclock, conseguirás más fluidez al moverte por los menús de Kodi y potenciarás notablemente el rendimiento a la hora de jugar a emuladores. Tu CPU podrá realizar cálculos más rápidos y el acceso a la memoria ram o al disco microSD tendrán tiempos de respuesta más bajos.  
 Recomiendo encarecidamente que utilices algún método de ventilación/refrigeración para evitar alcanzar los 85ºC, ya que la RPi bajará su velocidad si alcanza esa temperatura
 
@@ -387,11 +389,11 @@ Encontrarás un script llamado bcmstat que permite medir con exactitud el estado
 # Estación de trabajo: XFCE Desktop
 Ésta imagen incluye un escritorio muy muy ligero pero funcional al 100%, se ha cuidado una estética minimalista. En el menú superior podrás encontrar software variado organizado por categorías. La consola (terminal) arranca con tmux por defecto, podrás partir tu área de trabajo y ejecutar diferentes aplicaciones a la vez, aquí os dejo un ejemplo con un cliente IRC (irssi), un juego dungeon crawler (crawl) y el reloj:
 
-![]()
+![](http://imgur.com/FigSpJq.png)
 
 El programa principal del desktop es Firefox, el conocido navegador web disponible ahora en tu Raspberry. Con soporte HTML5 y compatible con Youtube:
 
-![]()
+![](http://imgur.com/BwMr0lC.png)
 
 # Software para la consola
 La imagen incluye una pequeña selección personal de herramientas y utilidades para la consola:
@@ -400,6 +402,8 @@ La imagen incluye una pequeña selección personal de herramientas y utilidades 
 - crawl: Juego tipo dungeon crawler para la consola
 - htop: Process Manager, para gestionar procesos y recursos
 - wavemon: Monitor de redes wifi, gráficos de señal, etc...
+
+![](http://imgur.com/wTmefDn.png)
 
 # Cosas que me falta escribir:
 - Plex
