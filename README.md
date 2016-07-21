@@ -149,7 +149,7 @@ Edita el fichero de **configuación**:
 
 Los campos importantes a modificar son:
 
-|   |   |
+| Campo | Significado |
 |---|---|
 | "download-dir": "/root/Downloads", | Ruta de descarga por defecto |
 | "rpc-authentication-required": true, | Proteger acceso a tranmission con password |
@@ -183,7 +183,7 @@ El servicio samba está habilitado por defecto, se han compartido las principale
 
 ![](http://i.imgur.com/esv0wx3.png)
 
-Para ello simplemente escribe la dirección \\MEDIACENTER-V6 o \\192.168.1.100 (la IP de tu Raspberry). Desde aquí podrás transferir ficheros y configuraciones, así como roms de juegos para RetroPie
+Para ello simplemente escribe la dirección \\\\MEDIACENTER-V6 o \\\\192.168.1.100 (la IP de tu Raspberry). Desde aquí podrás transferir ficheros y configuraciones, así como roms de juegos para RetroPie
 
 # Recomendaciones
 - Configura una **IP manual** a tu Raspberry
@@ -269,6 +269,17 @@ Disponemos de varios parametros para personalizar moonlight, por ejemplo podemos
 
     moonlight stream -mapping /root/xbox.map -app "League of Legends"
 
+Para evitar introducir comandos, encontrarás un emulador llamado Steam dentro de RetroPie/Emulationstation, dicho emulador tiene 4 scripts para lanzar Steam con resolución 720, 1080, 30fps o 60fps. Los scripts funcionan tal cual, pero si has creado un fichero *.map para tu controlador/joystick sería bueno que edites los 4 ficheros y añadas al final el texto `-mapping /root/xbox.map`
+
+Los 4 ficheros están en la ruta `/root/RetroPie/roms/moonlight`, puedes editarlos desde la consola de la Raspberry, por SSH/Putty o accediendo por samba: \\\\192.168.1.100\\roms\\moonlight o \\\\MEDIACENTER-V6\\roms\\moonlight  
+Añade al final el comando -mapping y la ruta del *.map, a mi me ha quedado así:
+
+    moonlight stream -1080 -60fps -app Steam -mapping /root/xbox.map
+
+Haz lo mismo para los 4 ficheros. Por último ejecuta el siguiente coamdno para dar permisos:
+
+    chmod +x /root/RetroPie/roms/moonlight/*
+
 El resultado es impecable:
 
 ![](http://i.imgur.com/xISo1l6.jpg)
@@ -276,18 +287,120 @@ El resultado es impecable:
 ![](http://i.imgur.com/NI09B6p.jpg)
 ![](http://i.imgur.com/uGeJZil.jpg)
 
-FALTA AÑADIR COMO MODIFICAR EL LAUNCHER DE EMULATIONSTATION
+# PASO 0: Overclocking
+Recomiendo habilitar un poco de overclock, conseguirás más fluidez al moverte por los menús de Kodi y potenciarás notablemente el rendimiento a la hora de jugar a emuladores. Tu CPU podrá realizar cálculos más rápidos y el acceso a la memoria ram o al disco microSD tendrán tiempos de respuesta más bajos.  
+Recomiendo encarecidamente que utilices algún método de ventilación/refrigeración para evitar alcanzar los 85ºC, ya que la RPi bajará su velocidad si alcanza esa temperatura
 
+Si quieres puedes ejecutar un benchmark (diagnóstico) para testear tu nivel de overclock, ejecuta el siguiente comando:
 
-#Cosas que me falta escribir:
+    curl https://raw.githubusercontent.com/aikoncwd/rpi-benchmark/master/rpi-benchmark.sh | sudo bash
+
+### Raspberry Pi 3: Overclock settings
+
+Edita tu fichero `/boot/config.txt` y pega el siguiente código, puedes ajustar los valores para tener más o menos overclock:
+
+```
+force_turbo=0                   #Enable cpu-overclock over 1300MHz (default 0)
+avoid_pwm_pll=1                 #Enable no-relative freq between cpu and gpu cores (default 0)
+
+arm_freq=1300                   #Frequency of ARM processor core in MHz (default 1200)
+core_freq=550                   #Frequency of GPU processor core in MHz (default 400)
+over_voltage=6                  #ARM/GPU voltage adjust, values over 6 voids warranty (default 0)
+
+sdram_freq=575                  #Frequency of SDRAM in MHz (default 450)
+sdram_schmoo=0x02000020         #Set SDRAM schmoo to get more than 500MHz freq (default unset)
+over_voltage_sdram_p=6          #SDRAM phy voltage adjust (default 0)
+over_voltage_sdram_i=4          #SDRAM I/O voltage adjust (default 0)
+over_voltage_sdram_c=4          #SDRAM controller voltage adjust (default 0)
+
+gpu_mem=256                     #GPU memory in MB. Memory split between ARM and GPU (default 64?)
+gpu_freq=550                    #Sets core_freq h264_freq isp_freq v3d_freq together (default 300)
+v3d_freq=500                    #Frequency of 3D block in MHz (default ?)
+h264_freq=350                   #Frequency of hardware video block in MHz (default ?)
+
+dtparam=sd_overclock=75         #Clock in MHz to use for MMC micrSD (default 50)
+dtparam=audio=on                #Enables the onboard ALSA audio (always use this ON)
+dtparam=spi=on                  #Enables the SPI interfaces (default OFF)
+
+temp_limit=80                   #Overheat protection. Disable overclock if SoC reaches this temp
+initial_turbo=60                #Enables turbo mode from boot for the given value in seconds
+
+hdmi_drive=2                    #Normal HDMI mode. Sound will be sent if supported and enabled (default 2)
+hdmi_ignore_cec_init=1          #Avoids bringing TV out of standby and channel switch when booting (default 0)
+hdmi_ignore_cec=0               #Pretends CEC is not supported. No CEC functions will be supported (default 0)
+hdmi_force_hotplug=1            #Pretends HDMI hotplug signal is asserted (default 0)
+
+start_x=1                       #Enable software decoding (MPEG-2, VC-1, VP6, VP8, Theora, etc. default 0)
+overscan_scale=1                #Video Output will respect the overscan settings (default 1)
+disable_overscan=0              #Disable overscan configuration. Set 1 if you see black lines on TV (default 0)
+disable_splash=1                #Avoids the rainbow splash screen on boot (default 0)
+avoid_warnings=1                #Disable warnings (Red=over-temperature ; Rainbow=under-voltage). (default 0)
+
+gpu_mem_256=128
+gpu_mem_512=256
+gpu_mem_1024=256
+```
+Lee bien los comandos, es posible que te interese modificar algunos para personalizar tu imagen.
+
+### Raspberry Pi 2: Overclock settings
+
+Edita tu fichero `/boot/config.txt` y pega el siguiente código, puedes ajustar los valores para tener más o menos overclock:
+
+    gpu_mem=256
+    gpu_mem_256=128
+    gpu_mem_512=256
+    gpu_mem_1024=256
+    
+    arm_freq=1100
+    core_freq=550
+    sdram_freq=483
+    over_voltage=6
+    over_voltage_sdram=2
+    temp_limit=70
+    force_turbo=0
+    initial_turbo=60
+    
+    hdmi_drive=2
+    hdmi_ignore_cec=0
+    hdmi_ignore_cec_init=1
+    hdmi_ignore_hotplug=0
+    hdmi_force_hotplug=1
+    
+    #disable_overscan=0
+    #overscan_scale=1
+    
+    #overscan_left=49
+    #overscan_right=49
+    #overscan_top=29
+    #overscan_bottom=25
+    
+    max_usb_current=1
+    dtparam=audio=on
+    dtparam=spi=on
+
+Encontrarás un script llamado bcmstat que permite medir con exactitud el estado del hardware de tu Raspberry, podrás ver a que velocidad va tu CPU y a que temperatura está, para ello ejecuta:
+
+    /root/bcmstat.sh
+
+![](http://imgur.com/o8I3dXw.png)
+
+# Estación de trabajo: XFCE Desktop
+Ésta imagen incluye un escritorio muy muy ligero pero funcional al 100%, se ha cuidado una estética minimalista. En el menú superior podrás encontrar software variado organizado por categorías. La consola (terminal) arranca con tmux por defecto, podrás partir tu área de trabajo y ejecutar diferentes aplicaciones a la vez, aquí os dejo un ejemplo con un cliente IRC (irssi), un juego dungeon crawler (crawl) y el reloj:
+
+![]()
+
+El programa principal del desktop es Firefox, el conocido navegador web disponible ahora en tu Raspberry. Con soporte HTML5 y compatible con Youtube:
+
+![]()
+
+# Software para la consola
+La imagen incluye una pequeña selección personal de herramientas y utilidades para la consola:
+- tmux: Multiplexor de terminales, permite dividir la consola
+- irssi: Cliente IRC en consola
+- crawl: Juego tipo dungeon crawler para la consola
+- htop: Process Manager, para gestionar procesos y recursos
+- wavemon: Monitor de redes wifi, gráficos de señal, etc...
+
+# Cosas que me falta escribir:
 - Plex
-- RetroPie, Emulationstation y emuladores
-- Configuración del mando xbox360usb
-- Copiar roms y bios
-- Moonlight y Steam
-- Personalizar los script de arranque d emoonlight
-- Crear un mappeado de botones para moonlight
-- Overclock y benchmark
-- Uso del Desktop y Firefox
-- Enseñar tmux, irssi, crawl, htop, wavemon, etc...
 - Hyperion
