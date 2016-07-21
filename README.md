@@ -4,15 +4,15 @@
 # Introducción
 Éste proyecto permite instalar en pocos minutos una imagen pre-configurada para **Raspberry 2** y **Raspberry 3** con las siguientes opciones:
 
-- Centro multimedia usando Kodi 16.1 Jarvis
-- Centro de juegos y emuladores usando RetroPie 4.0
-- Centro de juegos en streaming usando Moonlight 2.2.1
-- Centro de descargas usando Transmission y PyLoad
-- Estación de trabajo con XFCE y navegador Firefox
-- Reproductor de vídeos para películas y series con subtítulos
-- Reproductor de canales de TV a la carta y en streaming
-- Reproductor de contenido multimedia deportivo usando AceStream y SopCast
-- Reproductor de música, videoclips y radio online
+- **Centro multimedia** usando *Kodi 16.1 Jarvis*
+- **Centro de juegos y emuladores** usando *RetroPie 4.0*
+- **Centro de juegos en streaming** usando *Moonlight 2.2.1*
+- **Centro de descargas** usando *Transmission* y *PyLoad*
+- **Estación de trabajo** con *XFCE* y navegador *Firefox*
+- Reproductor de vídeos para **películas y series en streaming** (con subtítulos)
+- Reproductor de **canales de TV a la carta y en streaming**
+- Reproductor de **contenido multimedia deportivo** usando *AceStream* y *SopCast*
+- Reproductor de **música, videoclips y radio online**
 - Y mucho más...
 
 # Materiales necesarios
