@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Aikoncwd-rpi-mediacenter by aikoncwd</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Aikoncwd-rpi-mediacenter</h1>
+      <h2 class="project-tagline">OS for RaspberryPi 2/3, with Kodi, RetroPie, Moonlight, Torrentbox, etc...</h2>
+      <a href="https://github.com/aikoncwd/aikoncwd-rpi-mediacenter" class="btn">View on GitHub</a>
+      <a href="https://github.com/aikoncwd/aikoncwd-rpi-mediacenter/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/aikoncwd/aikoncwd-rpi-mediacenter/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="disclaimer" class="anchor" href="#disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disclaimer</h1>
+
+<p><em>Éste proyecto pretende explicar como configurar un centro multimedia (mediacenter) completo, una estación de juegos y un servidor de descargas. Todo en uno. <strong>Queda prohibido cualquier uso orientado a piratear/robar contenido con derechos de autor/terceros sin expreso consentimiento.</strong> Éste proyecto está basado en un conjunto de software gratuito que se puede encontrar fácilmente en internet. Éste proyecto no tiene ningún fin lucrativo, su único fin es enseñar y educar sobre la configuración y uso de los distintos programas.</em></p>
+
+<h1>
+<a id="introducción" class="anchor" href="#introducci%C3%B3n" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introducción</h1>
+
+<p>Éste proyecto permite instalar en pocos minutos una imagen pre-configurada para <strong>Raspberry 2</strong> y <strong>Raspberry 3</strong> con las siguientes opciones:</p>
+
+<ul>
+<li>
+<strong>Centro multimedia</strong> usando <em>Kodi 16.1 Jarvis</em>
+</li>
+<li>
+<strong>Centro de juegos y emuladores</strong> usando <em>RetroPie 4.0</em>
+</li>
+<li>
+<strong>Centro de juegos en streaming</strong> usando <em>Moonlight 2.2.1</em>
+</li>
+<li>
+<strong>Centro de descargas</strong> usando <em>Transmission</em> y <em>PyLoad</em>
+</li>
+<li>
+<strong>Estación de trabajo</strong> con <em>XFCE</em> y navegador <em>Firefox</em>
+</li>
+<li>Reproductor de vídeos para <strong>películas y series en streaming</strong> (con subtítulos)</li>
+<li>Reproductor de <strong>canales de TV a la carta y en streaming</strong>
+</li>
+<li>Reproductor de <strong>contenido multimedia deportivo</strong> usando <em>AceStream</em> y <em>SopCast</em>
+</li>
+<li>Reproductor de <strong>música, videoclips y radio online</strong>
+</li>
+<li>Herramientas: <em>Cliente IRC, wavemon, tmux, crawl, y mucho más...</em>
+</li>
+</ul>
+
+<h1>
+<a id="materiales-necesarios" class="anchor" href="#materiales-necesarios" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Materiales necesarios</h1>
+
+<ul>
+<li>
+<a href="https://www.amazon.es/Raspberry-Modelo-GHz-Quad-core-Cortex-A53/dp/B01CD5VC92/ref=sr_1_1?ie=UTF8&amp;qid=1469090832&amp;sr=8-1&amp;keywords=raspberry"><strong>Raspberry Pi 3</strong></a> - Quadcore 1200MHz @ 1Gb RAM</li>
+<li>Tarjeta <strong>microSD SDHC</strong> 6Gb, recomiendo <a href="https://www.amazon.es/gp/product/B013CP5A0Y/ref=oh_aui_detailpage_o02_s00?ie=UTF8&amp;psc=1">SanDisk SDSQXNE-032G-GN6AA</a>
+</li>
+<li>Cargador de corriente micro USB, <strong>5V</strong> y <strong>3A</strong>, recomiendo <a href="https://www.amazon.es/Aukru-3000mA-Cargador-Adaptador-Raspberry/dp/B01566WOAG/ref=sr_1_13?ie=UTF8&amp;qid=1469090832&amp;sr=8-13&amp;keywords=raspberry">éste modelo</a>
+</li>
+<li>
+<strong>Caja</strong> protectora, recomiendo <a href="https://www.amazon.es/TRIXES-transparente-ventilador-enfriamiento-Raspberry/dp/B01BKIQJD2/ref=sr_1_22?ie=UTF8&amp;qid=1469090864&amp;sr=8-22&amp;keywords=raspberry">ésta caja con <strong>ventilador</strong></a>
+</li>
+<li><a href="https://www.amazon.es/AmazonBasics-Cable-velocidad-est%C3%A1ndar-reciente/dp/B014I8SSD0/ref=sr_1_1?s=electronics-accessories&amp;ie=UTF8&amp;qid=1469091932&amp;sr=1-1&amp;keywords=cable+hdmi">Cable <strong>HDMI</strong> 2.0</a></li>
+</ul>
+
+<h1>
+<a id="materiales-recomendados" class="anchor" href="#materiales-recomendados" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Materiales recomendados</h1>
+
+<ul>
+<li>
+<a href="http://www.ebay.es/itm/Switched-microUSB-extension-lead-Raspberry-Pi-etc-Power-Cable/171305347085?_trksid=p2047675.c100005.m1851&amp;_trkparms=aid%3D222007%26algo%3DSIC.MBE%26ao%3D1%26asc%3D20140620091323%26meid%3Dd9ed3dfdcbda43208e646caa71adf5b5%26pid%3D100005%26rk%3D3%26rkt%3D6%26mehot%3Dpp%26sd%3D171411830547">Interruptor <strong>USB</strong></a> para apagar la Raspberry</li>
+<li>Disipadores de <a href="https://www.amazon.es/enfriamiento-disipador-t%C3%A9rmico-disipadores-Raspberry/dp/B00LSF9ZKW/ref=sr_1_64?ie=UTF8&amp;qid=1469090886&amp;sr=8-64&amp;keywords=raspberry"><strong>cobre</strong></a> o <a href="https://www.amazon.es/Aukru-Disipador-Raspberry-aluminio-unidades/dp/B00ILK6DMA/ref=sr_1_9?ie=UTF8&amp;qid=1469090832&amp;sr=8-9&amp;keywords=raspberry">aluminio</a>
+</li>
+<li>Teclado inalámbrico, recomiendo <a href="https://www.amazon.es/Logitech-K400-Plus-inal%C3%A1mbrico-incorporado/dp/B00XYTTEAQ/ref=sr_1_1?ie=UTF8&amp;qid=1469090931&amp;sr=8-1&amp;keywords=logitech+k400">Logitech <strong>K400</strong></a>
+</li>
+<li>
+<a href="https://www.amazon.es/Microsoft-Xbox-Common-Controller-Windows/dp/B004JU0JSK/ref=sr_1_5?ie=UTF8&amp;qid=1469115260&amp;sr=8-5&amp;keywords=xbox+360">Mando XBOX 360</a> (<strong>cable USB</strong>)</li>
+</ul>
+
+<p>Recomiendo hacer el montaje usando <strong>cable de red ethernet</strong>. Si no disponemos de conexión por cable en el salón, podemos realizar el montaje usando el <strong>wifi</strong> integrado de la Raspberry 3, pero no lo recomiendo ya que el streaming se podría cortar.</p>
+
+<h1>
+<a id="contenido-del-mediacenter" class="anchor" href="#contenido-del-mediacenter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contenido del MediaCenter</h1>
+
+<p><strong>Mediacenter Kodi 16.1 Jarvis</strong>, <em>compilación arm7</em><br>
+Válido <strong>RaspberryPi 2</strong> y <strong>RaspberryPi 3</strong></p>
+
+<p><strong>REPOSITORIOS</strong></p>
+
+<ul>
+<li>Kodi Addon Repo</li>
+<li>Popcornmix Repo</li>
+<li>Shanis Repo</li>
+<li>SuperRepo</li>
+<li>TVAddons</li>
+</ul>
+
+<p><strong>VIDEO</strong></p>
+
+<ul>
+<li>Catoal -&gt; Canales de TV en streaming, contenido nacional e internacional</li>
+<li>AdryanList -&gt; Canales de TV en streaming, contenido nacional e internacional</li>
+<li>pelisalacarta -&gt; El mejor addon para ver películas, con acceso a EliteTorrent, Divxatope, ...</li>
+<li>Quasar -&gt; El mejor reproductor, visualiza contenido sin esperar a completar la descarga</li>
+<li>Plexus-Streams -&gt; Reproductor de enlaces AceStream y SopCast, para contenido deportivo</li>
+<li>tvalacarta -&gt; Acceso a todo el contenido de la TV bajo demanda (a la carta)</li>
+<li>PleXBMC -&gt; Cliente de Plex para Kodi, gestiona y visualiza toda tu biblioteca Plex</li>
+<li>XBMCtorrent -&gt; Igual que Quasar, permite ver contenido torrent sin esperar a descargar</li>
+<li>Torrenter -&gt; Igual que Quasar, permite ver contenido torrent sin esperar a descargar</li>
+<li>YouTube -&gt; Cliente para visualizar videos de Youtube, reproduce contenido VEVO también</li>
+</ul>
+
+<p><strong>PROGRAMAS</strong></p>
+
+<ul>
+<li>AddonInstaller -&gt; Instalador gráfico de addons</li>
+<li>Desktop -&gt; Cierra Kodi y ejecuta el escritorio XCFE</li>
+<li>Emulationstation -&gt; Cierra Kodi y ejecuta Retropie (Emulationstation)</li>
+<li>Wifi Config -&gt; Cierra Kodi y permite configurar el Wifi y el Bluetooth</li>
+<li>Maintenance Tool -&gt; Varios tweaks para limpiar la cache y optimizar la memoria de Kodi</li>
+<li>Quasar Providers -&gt; ExtraTorrent + KickAss + Magnetdl + ThePirateBay + TorrentZ + Yourbittorrent + 1333x</li>
+<li>Provider Manager -&gt; Edita simultaneamente todos los providers de Quasar</li>
+<li>XBMC Library AutoUpdate -&gt; Mantiene actualizada y limpia la biblioteca de Kodi</li>
+</ul>
+
+<p><strong>MUSICA</strong></p>
+
+<ul>
+<li>TuneIn Radio -&gt; Acceso a cualquier radio online de todo el mundo, música en directo</li>
+<li>MP3 Streams -&gt; Reproductor de musica en streaming, es un clon ruso de Spotify</li>
+</ul>
+
+<p><strong>SUBTITULOS</strong></p>
+
+<ul>
+<li>Addic7ed.com</li>
+<li>OpenSubtitles.org</li>
+<li>Subdivx.com</li>
+<li>TuSubtitulo</li>
+</ul>
+
+<p><strong>LETRAS/LYRIC</strong></p>
+
+<ul>
+<li>CU LRC Lyrics</li>
+</ul>
+
+<p><strong>SCRAPERS</strong></p>
+
+<ul>
+<li>The Movie atabase</li>
+<li>The TVDB</li>
+</ul>
+
+<p>Los scrapers descargan automáticamente la información, portada, sinopsis, reparto, puntuaciones, .... de cualquier película o serie que visualicemos</p>
+
+<h1>
+<a id="más-información" class="anchor" href="#m%C3%A1s-informaci%C3%B3n" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Más información</h1>
+
+<ul>
+<li>Viene todo preconfigurado para <strong>enchufar y usar</strong>
+</li>
+<li>Configuración personalizada en <strong>Castellano</strong>: Teclado, Zona Horaria, Layout y Subtítulos</li>
+<li>Ethernet con <strong>IP automática</strong> (DHCP)</li>
+<li>Protocolos <strong>SSH</strong> y <strong>SMB</strong> (Samba) habilitados (usuario = <strong>root</strong> / password = <strong>aikoncwd</strong>)</li>
+<li>Kodi con Skin <strong>Confluence</strong>
+</li>
+<li>Transmission tuneado para <strong>maximizar su velocidad de torrents</strong>
+</li>
+<li>Acceso por <strong>Zeroconf</strong> habilitado (para control remoto desde smartphone)</li>
+<li>Protocolo <strong>AirPlay</strong> deshabilitado (mejora rendimiento)</li>
+<li>Addon de <strong>ElTiempo</strong> deshabilitado (mejora rendimiento)</li>
+<li>Lector de noticias <strong>RSS</strong> deshabilitado (mejora rendimiento)</li>
+<li>Biblioteca compartida por <strong>UPnP</strong> deshabilitado (mejora rendimiento)</li>
+<li>Librería Python <strong>libtorrent</strong> instalada para acelerar streaming</li>
+<li>Librería <strong>librtmp</strong> actualizada</li>
+</ul>
+
+<hr>
+
+<h1>
+<a id="paso-1-instalación" class="anchor" href="#paso-1-instalaci%C3%B3n" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PASO 1: Instalación</h1>
+
+<ol>
+<li>Descargar la imágen preconfigurada <a href="https://github.com/aikoncwd/aikoncwd-rpi-mediacenter/raw/master/Mediacenter-AikonCWD-v6.torrent"><strong>Mediacenter-AikonCWD-v6.img</strong></a>
+</li>
+<li>Grabar la imagen en tu tarjeta <strong>microSD</strong>:
+
+<ul>
+<li>
+<strong>Windows</strong>: Utilizar el programa <a href="https://sourceforge.net/projects/win32diskimager/">win32diskimager</a>
+</li>
+<li>
+<strong>Linux/Mac</strong>: <code>sudo dd if=/path/Mediacenter-AikonCWD-v6.img of=/dev/mmcblk0 bs=4M</code>
+</li>
+</ul>
+</li>
+<li>Introduce tu <strong>microSD</strong> con la imagen grabada en tu Raspberry</li>
+<li>Enchufa el <strong>cable de alimentación</strong>
+</li>
+<li>La Raspberry se encenderá, aparecerá la imágen inicial de <em>garlic-dog</em>
+</li>
+<li>La Raspberry se <strong>reiniciará automáticamente</strong>, volverás a ver la imagen inicial de <em>garlic-dog</em>
+</li>
+<li>El mediacenter <strong>Kodi</strong> arrancará automáticamente</li>
+<li>Pulsamos el botón situado en la <em>esquina inferior izquierda</em>, seleccionamos <strong>salir</strong> para cerrar <strong>Kodi</strong>
+</li>
+<li>Verificar que la partición ocupa el <strong>100% de tu microSD</strong> con el comando <code>df -h</code> (opcional)</li>
+</ol>
+
+<p>Tras salir de Kodi estaremos en la <strong>consola</strong>, si en lugar de la consola vemos el fondo totalmente negro es posible que haya saltado el salvapantallas, pulsa una tecla en tu teclado y la consola aparecerá de nuevo.</p>
+
+<h1>
+<a id="paso-2-configurar-ip-estática" class="anchor" href="#paso-2-configurar-ip-est%C3%A1tica" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PASO 2: Configurar IP Estática</h1>
+
+<ol>
+<li>Editamos el fichero de configuración con el comando <code>nano /etc/dhcpcd.conf</code>
+</li>
+<li>Quitamos el comentario (<strong>#</strong>) que hay al principio de cada línea:</li>
+</ol>
+
+<pre><code>interface eth0
+static ip_address=192.168.1.100/24
+static routers=192.168.1.1
+static domain_name_servers=8.8.8.8
+</code></pre>
+
+<p>Puede que el router de tu casa tenga otra dirección (por ejemplo <strong>192.168.0.1</strong>), personaliza éste fichero para adaptarlo según el caso. Si tienes intención de utilizar el <strong>wifi</strong>, repite los mismos pasos aplicándo a la sección <strong>interface wlan0</strong></p>
+
+<p>Una vez finalizado, guarda los cambios en el fichero, para ello pulsa: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>.</p>
+
+<h1>
+<a id="paso-3-cambiar-el-password-de-root" class="anchor" href="#paso-3-cambiar-el-password-de-root" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PASO 3: Cambiar el password de root</h1>
+
+<p>El usuario por defecto de ésta imagen es <strong>root</strong>, la contraseña original es <strong>aikoncwd</strong>. Recomiendo encarecidamente que cambies ese password, para ello escribe el comando <code>passwd root</code>, a continuación escribe tu nuevo password 2 veces. Recuerda que éste usuario/password lo utilizarás para acceder a la Raspberry por <strong>SSH</strong> o <strong>sFTP</strong> (FileZilla), también lo usarás si pretendes controlar Kodi desde tu <strong>smartphone</strong>, etc...</p>
+
+<h1>
+<a id="paso-4-configurar-transmission-opcional" class="anchor" href="#paso-4-configurar-transmission-opcional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PASO 4: Configurar Transmission (opcional)</h1>
+
+<p><strong>Transmission</strong> es un programa que permite transformar tu Raspberry en un servidor de descargas <strong>BitTorrent</strong>. El daemon de transmission está instalado y configurado, pero <strong>se encuentra deshabilitado por defecto</strong> ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar transmission... sigue leyendo:</p>
+
+<p>Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la <strong>Raspberry</strong>. Edita el fichero de auto-arranque con el comando:</p>
+
+<pre><code>nano /etc/rc.local
+</code></pre>
+
+<p>El fichero tiene comentarios, básicamente tienes que localizar y eliminar la línea <code>service transmission-daemon stop</code>. Pulsando <kbd>CTRL</kbd>+<kbd>K</kbd> borrarás la línea actual. Salva los cambios en el fichero <code>/etc/rc.local</code> pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>.</p>
+
+<p>Asegurate que el <strong>daemon</strong> de transmission está <strong>detenido</strong>, ejecuta los siguientes commandos:</p>
+
+<pre><code>service transmission-daemon stop
+/etc/init.d/transmission-daemon stop
+</code></pre>
+
+<p>Edita el fichero de <strong>configuación</strong>:</p>
+
+<pre><code>nano /root/.config/transmission-daemon/settings.json
+</code></pre>
+
+<p>Los campos importantes a modificar son:</p>
+
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"download-dir": "/root/Downloads",</td>
+<td>Ruta de descarga por defecto</td>
+</tr>
+<tr>
+<td>"rpc-authentication-required": true,</td>
+<td>Proteger acceso a tranmission con password</td>
+</tr>
+<tr>
+<td>"rpc-password": "root",</td>
+<td>Password para acceder a transmission</td>
+</tr>
+<tr>
+<td>"rpc-username": "root",</td>
+<td>Usuario para acceder a transmission</td>
+</tr>
+</tbody>
+</table>
+
+<p>Salva los cambios en el fichero <code>settings.json</code> pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>. Activa el daemon <strong>manualmente</strong> con el comando:</p>
+
+<pre><code>service transmission-daemon start
+</code></pre>
+
+<p>El daemon de Transmission estará activo en el <strong>puerto 9091</strong>, con usuario y password <strong>root</strong>. Podrás comprobar el daemon si accedes a través de un explorador web a la dirección http://ip_raspberry:9091, por ejemplo <strong><a href="http://192.168.1.100:9091">http://192.168.1.100:9091</a></strong> Pulsamos el botón de configuración <em>llave inglesa</em> para editar las preferencias. La configuración de descargas está configurado para ser lo más óptima posible. Encontrarás agregada una URL de <strong>ip-block</strong> para mejorar la descarga de ficheros torrents en transmission. Puedes controlar transmission desde tu smartphone, hay una <a href="https://play.google.com/store/apps/details?id=com.neogb.rtac&amp;hl=es">app</a> para ello (también en iOS). </p>
+
+<h1>
+<a id="paso-5-configurar-pyload-opcional" class="anchor" href="#paso-5-configurar-pyload-opcional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PASO 5: Configurar PyLoad (opcional)</h1>
+
+<p><strong>PyLoad</strong> es un programa que permite transformar tu Raspberry en un servidor de <strong>descargas directas</strong>. El daemon de <strong>PyLoad</strong> está instalado y configurado, pero <strong>se encuentra deshabilitado por defecto</strong> ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar <strong>PyLoad</strong>... sigue leyendo:</p>
+
+<p>Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la <strong>Raspberry</strong>. Edita el fichero de auto-arranque <strong>cron</strong> con el comando:</p>
+
+<pre><code>crontab -e
+</code></pre>
+
+<p>Nos situamos en la parte inferior, localiza la línea <code>#@reboot pyLoadCore -daemon</code> y quita el <strong>comentario</strong> del principio, deberá quedar asi: <code>@reboot pyLoadCore --daemon</code> (<strong>tienes que poner los 2 guiones delante de la palabra daemon</strong>). Salva los cambios pulsando las teclas: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd></p>
+
+<p>Tendrás que reiniciar tu Raspberry para tener el daemon de pyLoad en ejecución, recuerda que <strong>Kodi</strong> se enciende automáticamente, deberás cerrarlo para volver a la consola.</p>
+
+<p>Accedemos a <strong>PyLoad</strong> a través de un explorador web usando el <strong>puerto 8000</strong>, por ejemplo: <strong><a href="http://192.168.1.100:8000">http://192.168.1.100:8000</a></strong><br>
+El usuario por defecto es <strong>root</strong> y password <strong>root</strong>. En el menu superior puedes <em>administrar</em> el usuario y cambiar el password (recomendado), justo abajo encontrarás la <em>configuración</em> donde podrás editar la configuración, los plugins de captchas etc... y añadir cualquier cuenta premium que poseas de los diferentes hosts.</p>
+
+<p><img src="http://i.imgur.com/o8A62oq.png" alt=""></p>
+
+<h1>
+<a id="paso-6-overclocking-opcional" class="anchor" href="#paso-6-overclocking-opcional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PASO 6: Overclocking (opcional)</h1>
+
+<p>Recomiendo habilitar un poco de <strong>overclock</strong>, conseguirás más fluidez al moverte por los menús de <strong>Kodi</strong> y potenciarás notablemente el rendimiento a la hora de jugar a emuladores. Tu <strong>CPU</strong> podrá realizar cálculos más rápidos y el acceso a la memoria <strong>ram</strong> o al disco <strong>microSD</strong> tendrán tiempos de respuesta más bajos.<br>
+Recomiendo encarecidamente que utilices algún método de <strong>ventilación/refrigeración</strong> para evitar alcanzar los <strong>85ºC</strong>, ya que la <strong>RPi</strong> bajará su velocidad si alcanza esa temperatura</p>
+
+<p>Si quieres puedes ejecutar un <strong>benchmark</strong> (diagnóstico) para testear tu nivel de overclock, ejecuta el siguiente comando:</p>
+
+<pre><code>curl https://raw.githubusercontent.com/aikoncwd/rpi-benchmark/master/rpi-benchmark.sh | sudo bash
+</code></pre>
+
+<h3>
+<a id="raspberry-pi-3-overclock-settings" class="anchor" href="#raspberry-pi-3-overclock-settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Raspberry Pi 3: Overclock settings</h3>
+
+<p>Edita tu fichero <code>/boot/config.txt</code> y pega el siguiente código, puedes ajustar los valores para tener más o menos overclock:</p>
+
+<pre><code>force_turbo=0                   #Enable cpu-overclock over 1300MHz (default 0)
+avoid_pwm_pll=1                 #Enable no-relative freq between cpu and gpu cores (default 0)
+
+arm_freq=1300                   #Frequency of ARM processor core in MHz (default 1200)
+core_freq=550                   #Frequency of GPU processor core in MHz (default 400)
+over_voltage=6                  #ARM/GPU voltage adjust, values over 6 voids warranty (default 0)
+
+sdram_freq=575                  #Frequency of SDRAM in MHz (default 450)
+sdram_schmoo=0x02000020         #Set SDRAM schmoo to get more than 500MHz freq (default unset)
+over_voltage_sdram_p=6          #SDRAM phy voltage adjust (default 0)
+over_voltage_sdram_i=4          #SDRAM I/O voltage adjust (default 0)
+over_voltage_sdram_c=4          #SDRAM controller voltage adjust (default 0)
+
+gpu_mem=256                     #GPU memory in MB. Memory split between ARM and GPU (default 64?)
+gpu_freq=550                    #Sets core_freq h264_freq isp_freq v3d_freq together (default 300)
+v3d_freq=500                    #Frequency of 3D block in MHz (default ?)
+h264_freq=350                   #Frequency of hardware video block in MHz (default ?)
+
+dtparam=sd_overclock=75         #Clock in MHz to use for MMC micrSD (default 50)
+dtparam=audio=on                #Enables the onboard ALSA audio (always use this ON)
+dtparam=spi=on                  #Enables the SPI interfaces (default OFF)
+
+temp_limit=80                   #Overheat protection. Disable overclock if SoC reaches this temp
+initial_turbo=60                #Enables turbo mode from boot for the given value in seconds
+
+hdmi_drive=2                    #Normal HDMI mode. Sound will be sent if supported and enabled (default 2)
+hdmi_ignore_cec_init=1          #Avoids bringing TV out of standby and channel switch when booting (default 0)
+hdmi_ignore_cec=0               #Pretends CEC is not supported. No CEC functions will be supported (default 0)
+hdmi_force_hotplug=1            #Pretends HDMI hotplug signal is asserted (default 0)
+
+start_x=1                       #Enable software decoding (MPEG-2, VC-1, VP6, VP8, Theora, etc. default 0)
+overscan_scale=1                #Video Output will respect the overscan settings (default 1)
+disable_overscan=0              #Disable overscan configuration. Set 1 if you see black lines on TV (default 0)
+disable_splash=1                #Avoids the rainbow splash screen on boot (default 0)
+avoid_warnings=1                #Disable warnings (Red=over-temperature ; Rainbow=under-voltage). (default 0)
+
+gpu_mem_256=128
+gpu_mem_512=256
+gpu_mem_1024=256
+</code></pre>
+
+<p>Lee bien los comandos, es posible que te interese modificar algunos para personalizar tu imagen.</p>
+
+<h3>
+<a id="raspberry-pi-2-overclock-settings" class="anchor" href="#raspberry-pi-2-overclock-settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Raspberry Pi 2: Overclock settings</h3>
+
+<p>Edita tu fichero <code>/boot/config.txt</code> y pega el siguiente código, puedes ajustar los valores para tener más o menos overclock:</p>
+
+<pre><code>gpu_mem=256
+gpu_mem_256=128
+gpu_mem_512=256
+gpu_mem_1024=256
+
+arm_freq=1100
+core_freq=550
+sdram_freq=483
+over_voltage=6
+over_voltage_sdram=2
+temp_limit=70
+force_turbo=0
+initial_turbo=60
+
+hdmi_drive=2
+hdmi_ignore_cec=0
+hdmi_ignore_cec_init=1
+hdmi_ignore_hotplug=0
+hdmi_force_hotplug=1
+
+#disable_overscan=0
+#overscan_scale=1
+
+#overscan_left=49
+#overscan_right=49
+#overscan_top=29
+#overscan_bottom=25
+
+max_usb_current=1
+dtparam=audio=on
+dtparam=spi=on
+</code></pre>
+
+<p>Encontrarás un script llamado <strong>bcmstat</strong> que permite medir con exactitud el estado del hardware de tu Raspberry, podrás ver a que velocidad va tu <strong>CPU</strong> y a que <strong>temperatura</strong> está, para ello ejecuta:</p>
+
+<pre><code>/root/bcmstat.sh
+</code></pre>
+
+<p><img src="http://imgur.com/o8I3dXw.png" alt=""></p>
+
+<h1>
+<a id="acceder-por-samba-smb" class="anchor" href="#acceder-por-samba-smb" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acceder por Samba (SMB)</h1>
+
+<p>El servicio <strong>samba</strong> está habilitado por defecto, se han compartido las principales carpetas para que puedas acceder desde cualquier equipo de tu <strong>red</strong>:</p>
+
+<p><img src="http://i.imgur.com/esv0wx3.png" alt=""></p>
+
+<p>Para ello simplemente escribe la dirección <strong>\\MEDIACENTER-V6</strong> o <strong>\\192.168.1.100</strong> (la IP de tu Raspberry). Desde aquí podrás transferir ficheros y configuraciones, así como <strong>roms de juegos</strong> para RetroPie</p>
+
+<h1>
+<a id="recomendaciones" class="anchor" href="#recomendaciones" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recomendaciones</h1>
+
+<ul>
+<li>Configura una <strong>IP manual</strong> a tu Raspberry</li>
+<li>Abre el puerto <strong>51413</strong> para aumentar la velocidad de <strong>Transmission</strong> (torrents)</li>
+<li>Abre el puerto <strong>9091</strong> para administrar <strong>Transmission</strong> desde fuera de casa, establece un password!</li>
+<li>Abre el puerto <strong>8000</strong> para administrar <strong>PyLoad</strong> desde fuera de casa, establece un password!</li>
+<li>Abre el puerto <strong>6881</strong> para aumentar la velocidad de <strong>Torrenter</strong>
+</li>
+<li>Abre los puertos <strong>6889 hasta 7000</strong> para aumentar la velocidad de <strong>Quasar</strong>
+</li>
+<li>Abre los puertos <strong>62062, 9000 y 9001</strong> para aumentar la velocidad de <strong>Plexus-Streams</strong>
+</li>
+</ul>
+
+<p>Todos esos puertos deberás abrirlos en tu router (<strong>NAT</strong>). Otra opción más sencilla sería configurar <strong>DMZ</strong> contra la ip fija de tu raspberry:</p>
+
+<p><img src="http://i.imgur.com/WqyCmzC.png" alt=""></p>
+
+<p>Puedes controlar remotamente <strong>Kodi</strong> usando el mando de tu TV (siempre y cuando sea <strong>CEC</strong> compatible). Si tu TV no es <strong>CEC</strong>, puedes descargar una <a href="https://itunes.apple.com/es/app/official-kodi-remote/id520480364?mt=8">app para tu smartphone</a>:</p>
+
+<p><img src="http://i.imgur.com/Or9Ofnx.png" alt=""></p>
+
+<h1>
+<a id="pelisalacarta-visualizar-pelísculas-en-streaming" class="anchor" href="#pelisalacarta-visualizar-pel%C3%ADsculas-en-streaming" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pelisalacarta: Visualizar pelísculas en streaming</h1>
+
+<p>Dentro de <strong>Kodi</strong> dispones del addon <strong>pelisalacarta</strong> (en versión <strong>UI</strong> o normal). Te recomiendo que explores por canales, a veces el buscador va algo lento. Mi provider favorito es <strong>EliteTorrent</strong> (puedes utilizar el que quieras), selecciona una película, pulsa <code>Ver el vídeo magnet: [torrent]</code></p>
+
+<p><img src="http://imgur.com/OsgUCKn.png" alt=""></p>
+
+<p>Dispondrás de <strong>5</strong> servicios para descargar y visualizar el torrent. Mi favorito es <strong>Quasar</strong> y <strong>XBMCtorrent</strong>, a cada usuario le funciona mejor uno u otro, usa el que más te guste. Ésta nueva versión incluye 2 clientes internos basados en <strong>libtorrent</strong>, yo los he probado y no me han funcionado demasiado bien.</p>
+
+<h1>
+<a id="jugar-con-los-emuladores-retropie" class="anchor" href="#jugar-con-los-emuladores-retropie" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Jugar con los emuladores (RetroPie)</h1>
+
+<p><em>Primero de todo necesitarás copiar alguna rom para jugar, la carpeta por defecto es <code>/root/RetroPie/roms/</code>, si no copias ninguna rom, no te aparecerán los emuladores para jugar!</em></p>
+
+<p>Desde el menu de <strong>Kodi</strong> puedes ejecutar <strong>Emulationstation</strong> (el menu de <strong>RetroPie</strong>) para jugar a juegos y emuladores. Si estás en la consola puedes escribir el comando <code>emulationstation</code> directamente. La primera vez que accedas te detectará el controlador/joystick que tengas (o el teclado USB), sigue el tutorial para configurar los botones.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/10035308/7110173/0f2ea784-e16a-11e4-9c6f-5fe7c594b05a.png" alt="">
+<img src="http://i.imgur.com/Dx3Tqw7.jpg" alt=""></p>
+
+<p>Una vez dentro tendrás un menú con 2 sistemas (<strong>Steam + RetroPie</strong>) y tantos emuladores como roms diferentes hayas copiado. Tienes que copiar las roms antes de ejecutar emulationstation para que las detecte correctamente.</p>
+
+<p><img src="http://i.imgur.com/j9ruih6.jpg" alt=""></p>
+
+<p>Por defecto las roms no vienen identificadas, tendrás que <strong>scrapear</strong> la información. Pulsamos <kbd>start</kbd> y seleccionamos el menu de <strong>scraper</strong>. Automáticamente buscará cada rom en internet y nos preguntará que información queremos usar en cada rom, tras finalizar el aspecto de nuestro emulador de <strong>SuperNintendo</strong> será más profesional:</p>
+
+<p><img src="http://i.imgur.com/94JhBUL.jpg" alt=""></p>
+
+<p>El uso de los emuladores es fácil e intuitivo. A continuación os dejo un par de resumenes para que aprendáis las combinaciones de teclas. Para salir de un juego hay que pulsar <kbd>Start</kbd> + <kbd>Select</kbd> a la vez.</p>
+
+<p><img src="http://i.imgur.com/I6XZ19a.png" alt=""></p>
+
+<p>Desde el menú <strong>RetroPie</strong> podrás cambiar todas las configuraciones de los emuladores. Desde el menú <strong>Steam</strong> podrás ejecutar juegos en streaming desde tu <strong>PC/Steam</strong> (lo explicaré más adelante).</p>
+
+<h1>
+<a id="juegos-de-pc-steam-moonlight" class="anchor" href="#juegos-de-pc-steam-moonlight" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Juegos de PC STEAM (Moonlight)</h1>
+
+<p>Seguimos con los juegos, ahora toca hablar de <strong>Moonlight</strong>. Si tienes la suerte de tener un PC con una tarjeta gráfica de la serie <strong>NVIDIA 600</strong> (o superior) podrás juegas a los juegos de tu <strong>PC</strong> directamente en tu Raspberry! Toda tu biblioteca de <strong>Steam</strong> y cualquier otro juego que tengas fuera de <strong>Steam</strong> podrá ser jugado en tu salón desde la Raspberry, empecemos:</p>
+
+<p>Instala <strong>NVIDIA GeForce Experience 2.11.4.0</strong><br>
+Asegurate que tu <strong>GFE</strong> está capacitado para el protocolo <strong>SHIELD</strong> (es el streaming). Entra en la configuración y añade cualquier ruta adicional para indicar a tu <strong>GFE</strong> donde guardas los juegos, yo lo tengo así:</p>
+
+<p><img src="http://i.imgur.com/VVfVSHC.png" alt=""></p>
+
+<p>Ahora vuelve a tu <strong>RPi</strong> y desde consola empareja tu <strong>RPi</strong> con <strong>GFE</strong>, usa el siguiente comando:</p>
+
+<pre><code>moonlight pair
+</code></pre>
+
+<p><img src="http://imgur.com/tajfTrE.png" alt=""></p>
+
+<p>Se generará un certificado y un <strong>código numérico de 4 cifras</strong>, ve a tu <strong>PC</strong> y añade el codigo en el recuadro correspondiente:</p>
+
+<p><img src="http://i.imgur.com/DYmlxn8.png" alt=""></p>
+
+<p>Vuelve a tu <strong>RPi</strong> y la verás correctamente emparejada, ahora puedes <strong>listar</strong> los juegos que tienes instalados, usa el comando:</p>
+
+<pre><code>moonlight list
+</code></pre>
+
+<p><img src="http://imgur.com/eqTUaiS.png" alt=""></p>
+
+<p>Antes de lanzarte a jugar, es recomendable que configures tu <strong>joystick</strong>. Algunos juegos no serán compatibles con un mando y requieren de Teclado y ratón. En esos juegos puedes lanzar el stream directamente pues el teclado y ratón no requieren ninguna configuración previa. Para configurar nuestro mando de <strong>XBOX 360 usb</strong> lanzaremos el siguiente comando:</p>
+
+<pre><code>moonlight map /root/xbox.map
+</code></pre>
+
+<p><img src="http://imgur.com/guGywR0.png" alt=""></p>
+
+<p>Completa las indicaciones al pie de la letra y tendrás tu mando correctamente configurado. Ahora ya podemos lanzar <strong>moonlight</strong> usando nuestro <em>mapping</em> personalizado del mando, la sintaxis sería:</p>
+
+<pre><code>moonlight stream -mapping /root/xbox.map
+</code></pre>
+
+<p><img src="http://i.imgur.com/mlv2u6y.jpg" alt=""></p>
+
+<p>Disponemos de varios parametros para personalizar <strong>moonlight</strong>, por ejemplo podemos arrancar a <strong>30fps o 60fps, 720 o 1080</strong>, etc... Si queremos lanzar un juego que tenemos en el listado pero no en <strong>Steam</strong> haremos lo siguiente:</p>
+
+<pre><code>moonlight stream -mapping /root/xbox.map -app "League of Legends"
+</code></pre>
+
+<p>Para evitar introducir comandos, encontrarás un emulador llamado <strong>Steam</strong> dentro de <strong>RetroPie/Emulationstation</strong>, dicho emulador tiene <strong>4 scripts</strong> para lanzar Steam con <strong>resolución 720, 1080, 30fps o 60fps</strong>. Los scripts funcionan tal cual, pero si has creado un fichero <strong>*.map</strong> para tu controlador/joystick sería bueno que edites los <strong>4</strong> ficheros y añadas al final el texto <code>-mapping /root/xbox.map</code></p>
+
+<p>Los 4 ficheros están en la ruta <code>/root/RetroPie/roms/moonlight</code>, puedes editarlos desde la <strong>consola</strong> de la Raspberry, por <strong>SSH/Putty</strong> o accediendo por samba: \\192.168.1.100\roms\moonlight o \\MEDIACENTER-V6\roms\moonlight<br>
+Añade al final el comando <strong>-mapping</strong> y la ruta del *.map, a mi me ha quedado así:</p>
+
+<pre><code>moonlight stream -1080 -60fps -app Steam -mapping /root/xbox.map
+</code></pre>
+
+<p>Haz lo mismo para los <strong>4 ficheros</strong>. Por último ejecuta el siguiente coamdno para dar permisos:</p>
+
+<pre><code>chmod +x /root/RetroPie/roms/moonlight/*
+</code></pre>
+
+<p>El resultado es impecable:</p>
+
+<p><img src="http://i.imgur.com/xISo1l6.jpg" alt="">
+<img src="http://i.imgur.com/I8nBbDp.jpg" alt="">
+<img src="http://i.imgur.com/NI09B6p.jpg" alt="">
+<img src="http://i.imgur.com/uGeJZil.jpg" alt=""></p>
+
+<h1>
+<a id="estación-de-trabajo-xfce-desktop" class="anchor" href="#estaci%C3%B3n-de-trabajo-xfce-desktop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Estación de trabajo: XFCE Desktop</h1>
+
+<p>Ésta imagen incluye un <strong>escritorio</strong> muy muy ligero pero funcional al 100%, se ha cuidado una estética minimalista. En el menú superior podrás encontrar software variado organizado por categorías. La consola (terminal) arranca con <strong>tmux</strong> por defecto, podrás partir tu área de trabajo y ejecutar diferentes aplicaciones a la vez, aquí os dejo un ejemplo con un cliente <strong>IRC</strong> (irssi), un juego <strong>dungeon crawler</strong> (crawl) y el <strong>reloj</strong>:</p>
+
+<p><img src="http://imgur.com/FigSpJq.png" alt=""></p>
+
+<p>El programa principal del desktop es <strong>Firefox</strong>, el conocido navegador web disponible ahora en tu Raspberry. Con soporte <strong>HTML5</strong> y compatible con <strong>Youtube</strong>:</p>
+
+<p><img src="http://imgur.com/BwMr0lC.png" alt=""></p>
+
+<h1>
+<a id="software-para-la-consola" class="anchor" href="#software-para-la-consola" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Software para la consola</h1>
+
+<p>La imagen incluye una pequeña selección personal de <strong>herramientas y utilidades</strong> para la consola:</p>
+
+<ul>
+<li>
+<strong>tmux</strong>: Multiplexor de terminales, permite dividir la consola</li>
+<li>
+<strong>irssi</strong>: Cliente IRC en consola</li>
+<li>
+<strong>crawl</strong>: Juego tipo dungeon crawler para la consola</li>
+<li>
+<strong>htop</strong>: Process Manager, para gestionar procesos y recursos</li>
+<li>
+<strong>wavemon</strong>: Monitor de redes wifi, gráficos de señal, etc...</li>
+</ul>
+
+<p><img src="http://imgur.com/wTmefDn.png" alt=""></p>
+
+<h1>
+<a id="cosas-que-me-falta-escribir" class="anchor" href="#cosas-que-me-falta-escribir" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cosas que me falta escribir:</h1>
+
+<ul>
+<li>Plex</li>
+<li>Hyperion</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/aikoncwd/aikoncwd-rpi-mediacenter">Aikoncwd-rpi-mediacenter</a> is maintained by <a href="https://github.com/aikoncwd">aikoncwd</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
