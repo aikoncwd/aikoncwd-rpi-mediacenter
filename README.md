@@ -79,6 +79,7 @@ Válido **RaspberryPi 2** y **RaspberryPi 3**
 **SCRAPERS**
 - The Movie atabase
 - The TVDB
+
 Los scrapers descargan automáticamente la información, portada, sinopsis, reparto, puntuaciones, .... de cualquier película o serie que visualicemos
 
 # Más información
