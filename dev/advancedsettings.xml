@@ -1,0 +1,36 @@
+<!--
+    advancedsettings.xml for Raspberry Pi 3
+    Add persistent-logs in your cmdline.txt
+    by AikonCWD (07/2016)
+-->
+<advancedsettings>
+    <loglevel>-1</loglevel>               <!-- No logging, suppress all log output, less CPU usage while using Kodi -->
+    <skiploopfilter>8</skiploopfilter>    <!-- The amount of the loop filter to skip, less CPU usage but less quality on mkv -->
+    <useddsfanart>false</useddsfanart>    <!-- Disable GPU rendering for fanarts. Must be false on ARM devices-->
+    <fanartres>720</fanartres>            <!-- Reduce fanart image, default is 1080-->
+    <imageres>512</imageres>              <!-- Reduce thumbsize, default is 720-->
+    <splash>false</splash>                <!-- Disable splash screen -->
+    <network>
+        <curlclienttimeout>60</curlclienttimeout>           <!-- Timeout in seconds for libcurl (http/ftp) connections -->
+        <curllowspeedtime>60</curllowspeedtime>             <!-- Time in seconds for libcurl to consider a connection lowspeed -->
+        <curlretries>3</curlretries>                        <!-- Number of retries for libcurl to connect. Default is 2-->
+        <disableipv6>true</disableipv6>                     <!-- Disable ipv6, more resources available for RPi-->
+        <cachemembuffersize>52428800</cachemembuffersize>   <!-- Cache size; this must be (free ram / 3) * 1024 * 1024 -->
+        <readbufferfactor>5.0</readbufferfactor>            <!-- Multiplier to fill the buffer -->
+        <buffermode>1</buffermode>                          <!-- Choose what to buffer:
+            0    Buffer all internet filesystems (like "2" but additionally also ftp, webdav, etc.) (default)
+            1    Buffer all filesystems, both internet and local
+            2    Only buffer true internet filesystems (streams) (http, etc.)
+            3    No buffer -->
+    </network>
+    <samba>
+        <clienttimeout>30</clienttimeout>   <!-- Timeout in seconds for samba connections -->
+        <statfiles>false</statfiles>        <!-- Set false to speed up listings of large directories -->
+    </samba>
+    <videolibrary>
+        <cleanonupdate>true</cleanonupdate> <!-- Remove items from the database while updating -->
+    </videolibrary>
+    <videoscanner>
+        <ignoreerrors>true</ignoreerrors>   <!-- Silently ignore errors while scanning videos -->
+    </videoscanner>
+</advancedsettings>
