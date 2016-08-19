@@ -112,6 +112,14 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 8. Pulsamos el botón situado en la *esquina inferior izquierda*, seleccionamos **salir** para cerrar **Kodi**
 9. Verificar que la partición ocupa el **100% de tu microSD** con el comando `df -h` (opcional)
 
+### Hash del fichero Mediacenter-AikonCWD-v6.img
+```
+MD5:         6AD3E6CE6CFCAB87991C8F317D9D3CF1
+SHA-1:       8E9CA0ACFAB3B09690C7630F2170B7C799B3A3CB
+SHA-256:     6391291208E920D81328D3854C99C4833956F3DD3E010B5445729AB79E9CCECC
+SHA-256 b64: Y5EpEgjpINgTKNOFTJnEgzlW890+AQtURXKat56czsw=
+```
+
 Tras salir de Kodi estaremos en la **consola**, si en lugar de la consola vemos el fondo totalmente negro es posible que haya saltado el salvapantallas, pulsa una tecla en tu teclado y la consola aparecerá de nuevo.
 
 # PASO 2: Configurar IP Estática
