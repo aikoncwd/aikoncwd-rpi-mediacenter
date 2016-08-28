@@ -6,6 +6,7 @@ Fuentes:
 
 * http://www.matthuisman.nz
 * https://github.com/aikoncwd/aikoncwd-rpi-mediacenter
+* http://www.kodimania.com/
 
 Los contenidos del centro multimedia de momento son:
 
@@ -49,7 +50,6 @@ Contenido del MediaCenter
 # PROGRAMAS
 
 * AddonInstaller -> Instalador gráfico de addons
-* Desktop -> Cierra Kodi y ejecuta el escritorio XCFE
 * Recalbox -> Cierra Kodi y ejecuta RecalBox
 * Maintenance Tool -> Varios tweaks para limpiar la cache y optimizar la memoria de Kodi
 * Quasar Providers -> ExtraTorrent + KickAss + Magnetdl + ThePirateBay + TorrentZ + Yourbittorrent + 1333x
@@ -81,7 +81,6 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 
 # Más información
 
-* Viene todo preconfigurado para enchufar y usar
 * Configuración personalizada en Castellano: Teclado, Zona Horaria, Layout y Subtítulos
 * Ethernet con IP automática (DHCP)
 * Protocolos SSH y SMB (Samba) habilitados (usuario = root / password = aikoncwd)
@@ -94,3 +93,17 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 * Biblioteca compartida por UPnP deshabilitado (mejora rendimiento)
 * Librería Python libtorrent instalada para acelerar streaming
 * Librería librtmp actualizada
+
+# 1. Habilitar Transmission con Docker
+
+Editaremos el fichero /storage/Dockerfiles-master/arm/transmission/transmission.service. Identificar las líneas --volume que acaban en /downloads y /incomplete. En /incomplete es donde Transmission va descargando los ficheros y en /downloads donde los va a dejar al acabar. Por defecto cuelga de /storage, que como suele ser la SD donde se instala LibreElec, puede ser demasiado pequeña para esto. Si tenéis un disco conectado por USB, hay que indicar el directorio correcto. 
+
+Por ejemplo:
+--volume=/var/media/sda1/Torrents:/downloads
+
+Para habilitar e iniciar el servicio:
+
+* systemctl enable /storage/Dockerfiles-master/arm/transmission/transmission.service
+* systemctl start transmission
+
+La dirección es http://x.y.z.t:9091 (IP de la Rpi).
