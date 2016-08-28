@@ -81,7 +81,7 @@ Contenido del MediaCenter
 
 # SCRAPERS
 
-* The Movie atabase
+* The Movie Database
 * The TVDB
 
 Los scrapers descargan automáticamente la información, portada, sinopsis, reparto, puntuaciones, .... de cualquier película o serie que visualicemos
