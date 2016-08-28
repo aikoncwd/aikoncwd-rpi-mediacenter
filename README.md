@@ -124,9 +124,14 @@ Por defecto arrancará desde Kodi, para cambiar esto
 * Para arrancar desde KODI, boot_partition=6    (Default)
 * Para arrancar desde Recalbox, boot_partition=8
 
+# 2. Espacio en la SD
 
+He configurado las particiones de LibreELEC y Recalbox para que se autoexpandan, por lo que ocuparan la mitad de la SD cada uno.
 
-# 1. Habilitar Transmission con Docker
+Si quieres configurarlo de otra manera edita /os/nombre_os/partitions.json y cambia "want_maximised" a false en la partición EXT4 que no quieras que se expanda. Por otra parte puedes configurar manualmente el espacio que ocupe con "partition_size_nominal" en MB.
+Para cambiar esto tendrás que reinstalarlo todo otra vez una vez instalado.
+
+# 3. Habilitar Transmission con Docker
 
 Editaremos el fichero /storage/Dockerfiles-master/arm/transmission/transmission.service. Identificar las líneas --volume que acaban en /downloads y /incomplete. En /incomplete es donde Transmission va descargando los ficheros y en /downloads donde los va a dejar al acabar. Por defecto cuelga de /storage, que como suele ser la SD donde se instala LibreElec, puede ser demasiado pequeña para esto. Si tenéis un disco conectado por USB, hay que indicar el directorio correcto. 
 
