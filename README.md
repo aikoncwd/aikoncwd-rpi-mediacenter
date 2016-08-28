@@ -65,8 +65,8 @@ Contenido del MediaCenter
 
 # MUSICA
 
-*TuneIn Radio -> Acceso a cualquier radio online de todo el mundo, música en directo
-*MP3 Streams -> Reproductor de musica en streaming, es un clon ruso de Spotify
+* TuneIn Radio -> Acceso a cualquier radio online de todo el mundo, música en directo
+* MP3 Streams -> Reproductor de musica en streaming, es un clon ruso de Spotify
 
 # SUBTITULOS
 
@@ -98,7 +98,6 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 * Lector de noticias RSS deshabilitado (mejora rendimiento)
 * Biblioteca compartida por UPnP deshabilitado (mejora rendimiento)
 * Librería Python libtorrent instalada para acelerar streaming
-* Librería librtmp actualizada
 
 # 1. Habilitar Transmission con Docker
 
