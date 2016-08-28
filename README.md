@@ -108,7 +108,7 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 
 Para hacerlo desde windows:
 
-* Instala el [SD Card Formater][https://www.sdcard.org/downloads/formatter_4/]
+* Instala el SD Card Formater https://www.sdcard.org/downloads/formatter_4/
 * Formatea la SD con la opción FORMAT SIZE ADJUSTEMENT=ON
 * Descarga el rar y descomprímelo
 * Copía el contenido del rar en la raíz de la tarjeta SD
