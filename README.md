@@ -13,6 +13,10 @@ Fuentes:
 * https://github.com/aikoncwd/aikoncwd-rpi-mediacenter
 * http://www.kodimania.com/index.php?topic=7650.0
 
+
+Descarga: https://mega.nz/#!P1cDUSIL
+
+
 Los contenidos del centro multimedia de momento son:
 
 Raspberry 1:
