@@ -1,6 +1,11 @@
+
+# Disclaimer
+
+*Este proyecto pretende explicar como configurar un centro multimedia (mediacenter) completo, una estación de juegos y un servidor de descargas. Todo en uno. __Queda prohibido cualquier uso orientado a piratear/robar contenido con derechos de autor/terceros sin expreso consentimiento.__ Éste proyecto está basado en un conjunto de software gratuito que se puede encontrar fácilmente en internet. Éste proyecto no tiene ningún fin lucrativo, su único fin es enseñar y educar sobre la configuración y uso de los distintos programas.*
+
 # Centro multimedia Kodi+Recalbox
 
-Ya que AikonCWD abandonó el centro multimedia para RPi1 decidí crear el mio propio con su idea y su contenido, a partir del proyecto de arranque dual *Librelec(Kodi)+Recalbox(Emuladores)*, con la instalación a partir de *NOOBS*, el instalador oficial de Raspberry. He incluido la mayoría de add-ons que *AikonCWD* incluye en su centro multimedia, pero descartando los que pienso que no me harían falta a mi en el mío. Copio y pego  su README descartando lo no incluido y añadiendo lo nuevo.
+Ya que **AikonCWD** abandonó el centro multimedia para RPi1 decidí crear el mio propio con su idea y su contenido, a partir del proyecto de arranque dual Librelec(Kodi)+Recalbox(Emuladores), con la instalación a partir de NOOBS, el instalador oficial de Raspberry. He incluido la mayoría de add-ons que *AikonCWD* incluye en su centro multimedia, pero descartando los que pienso que no me harían falta a mi en el mío. Copio y pego  su README descartando lo no incluido y añadiendo lo nuevo.
 
 Fuentes:
 
