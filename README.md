@@ -1,12 +1,12 @@
 # Centro multimedia Kodi+Recalbox
 
-Ya que AikonCWD abandonó el centro multimedia para RPi1 decidí crear el mio propio con su idea y su contenido, a partir del proyecto de arranque dual Librelec(Kodi)+Recalbox(Emuladores), con la instalación a partir de NOOBS, el instalador oficial de Raspberry. He incluido la mayoría de add-ons que Aikon incluye en su centro multimedia, pero descartando los que pienso que no me harían falta a mi en el mío. Copio y pego parte de su README descartando lo no incluido.
+Ya que AikonCWD abandonó el centro multimedia para RPi1 decidí crear el mio propio con su idea y su contenido, a partir del proyecto de arranque dual *Librelec(Kodi)+Recalbox(Emuladores)*, con la instalación a partir de *NOOBS*, el instalador oficial de Raspberry. He incluido la mayoría de add-ons que *AikonCWD* incluye en su centro multimedia, pero descartando los que pienso que no me harían falta a mi en el mío. Copio y pego  su README descartando lo no incluido y añadiendo lo nuevo.
 
 Fuentes:
 
 * http://www.matthuisman.nz
 * https://github.com/aikoncwd/aikoncwd-rpi-mediacenter
-* http://www.kodimania.com/
+* http://www.kodimania.com/index.php?topic=7650.0
 
 Los contenidos del centro multimedia de momento son:
 
@@ -31,12 +31,13 @@ Contenido del MediaCenter
 * Kodi Addon Repo
 * Popcornmix Repo
 * Shanis Repo
-* SuperRepoh ttp://srp.nu
+* SuperRepo
 * TVAddons
 
 # VIDEO
 
-* Catoal -> Canales de TV en streaming, contenido nacional e internacional
+* Catoal 5.3.5 Especial Edición-> Canales de TV en streaming, contenido nacional e internacional
+* La Liga -> Stream de los partidos de la liga española.
 * AdryanList -> Canales de TV en streaming, contenido nacional e internacional
 * pelisalacarta -> El mejor addon para ver películas, con acceso a EliteTorrent, Divxatope, ...
 * Quasar -> El mejor reproductor, visualiza contenido sin esperar a completar la descarga
@@ -45,7 +46,9 @@ Contenido del MediaCenter
 * PleXBMC -> Cliente de Plex para Kodi, gestiona y visualiza toda tu biblioteca Plex
 * XBMCtorrent -> Igual que Quasar, permite ver contenido torrent sin esperar a descargar
 * Torrenter -> Igual que Quasar, permite ver contenido torrent sin esperar a descargar
-* YouTube -> Cliente para visualizar videos de Youtube, reproduce contenido VEVO también
+* YouTube -> Cliente para visualizar videos de Youtube.
+* Vevo - > Plugins para videos musicales.
+* Sportsdevil -> Streaming de programas deportivos
 
 # PROGRAMAS
 
@@ -55,6 +58,10 @@ Contenido del MediaCenter
 * Quasar Providers -> ExtraTorrent + KickAss + Magnetdl + ThePirateBay + TorrentZ + Yourbittorrent + 1333x
 * Provider Manager -> Edita simultaneamente todos los providers de Quasar
 * XBMC Library AutoUpdate -> Mantiene actualizada y limpia la biblioteca de Kodi
+* Backup -> Haz tu backup de la configuración de Kodi.
+* OpenELEC Config -> Frontend para configurar config.txt sin consola.
+* Transmission Addon -> para controlar las descargas desde Kodi.
+* Unrar Plugin
 
 # MUSICA
 
@@ -83,9 +90,8 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 
 * Configuración personalizada en Castellano: Teclado, Zona Horaria, Layout y Subtítulos
 * Ethernet con IP automática (DHCP)
-* Protocolos SSH y SMB (Samba) habilitados (usuario = root / password = aikoncwd)
+* Protocolos SSH y SMB (Samba) habilitados (usuario = root / password = libreelec)
 * Kodi con Skin Confluence
-* Transmission tuneado para maximizar su velocidad de torrents
 * Acceso por Zeroconf habilitado (para control remoto desde smartphone)
 * Protocolo AirPlay deshabilitado (mejora rendimiento)
 * Addon de ElTiempo deshabilitado (mejora rendimiento)
