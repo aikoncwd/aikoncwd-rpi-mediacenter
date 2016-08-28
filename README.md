@@ -104,6 +104,28 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 * Biblioteca compartida por UPnP deshabilitado (mejora rendimiento)
 * Librería Python libtorrent instalada para acelerar streaming
 
+# 1. INSTALACIÓN
+
+Para hacerlo desde windows:
+
+* Instala el [SD Card Formater][https://www.sdcard.org/downloads/formatter_4/]
+* Formatea la SD con la opción FORMAT SIZE ADJUSTEMENT=ON
+* Descarga el rar y descomprímelo
+* Copía el contenido del rar en la raíz de la tarjeta SD
+* Introduce la SD en la Rpi apagada y arráncala
+* Arrancará el instalador NOOBS
+* Te saldrán dos sistemas operativos o varios, según tengas o no conectada la PI a internet. Selecciona los SO: RecalBoxOS-LibreElec y RecalboxOS-rpi1.
+* Ahora a esperar que acabe y selecciona el SO desde el cual quieres arrancar primero.
+
+Por defecto arrancará desde Kodi, para cambiar esto
+* Saca la SD y metela en tu PC con windows.
+* Abre el archivo autoboot.txt y cambia el número de partición
+* Para arrancar desde NOOBS, boot_partition=0
+* Para arrancar desde KODI, boot_partition=6    (Default)
+* Para arrancar desde Recalbox, boot_partition=8
+
+
+
 # 1. Habilitar Transmission con Docker
 
 Editaremos el fichero /storage/Dockerfiles-master/arm/transmission/transmission.service. Identificar las líneas --volume que acaban en /downloads y /incomplete. En /incomplete es donde Transmission va descargando los ficheros y en /downloads donde los va a dejar al acabar. Por defecto cuelga de /storage, que como suele ser la SD donde se instala LibreElec, puede ser demasiado pequeña para esto. Si tenéis un disco conectado por USB, hay que indicar el directorio correcto. 
