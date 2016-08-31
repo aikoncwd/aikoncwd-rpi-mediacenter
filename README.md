@@ -14,7 +14,7 @@ Fuentes:
 * http://www.kodimania.com/index.php?topic=7650.0
 
 
-Descarga: https://mega.nz/#!rpUnSDzL
+Descarga: https://mega.nz/#!rpUnSDzL!vfiMDYrP62-gL46Rce2YTcDzu_fKwO_qzgv9mfUkCws
 
 
 Los contenidos del centro multimedia de momento son:
