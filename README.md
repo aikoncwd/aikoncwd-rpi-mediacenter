@@ -103,7 +103,8 @@ Los scrapers descargan automáticamente la información, portada, sinopsis, repa
 1. Descargar la imágen preconfigurada [**Mediacenter-AikonCWD-v6.img**](https://github.com/aikoncwd/aikoncwd-rpi-mediacenter/raw/master/Mediacenter-AikonCWD-v6.torrent)
 2. Grabar la imagen en tu tarjeta **microSD**:
   - **Windows**: Utilizar el programa [win32diskimager](https://sourceforge.net/projects/win32diskimager/)
-  - **Linux/Mac**: `sudo pv Mediacenter-AikonCWD-v6.img | sudo dd of=disk2s1 bs=4M && sync`
+  - **Linux**: `sudo pv Mediacenter-AikonCWD-v6.img | sudo dd of=disk2s1 bs=4M && sync`
+  - **MAC**: Utiliza el programa [Apple-PiBakery](http://www.tweaking4all.com/software/macosx-software/macosx-apple-pi-baker/), gracias *jagarciavi*
 3. Introduce tu **microSD** con la imagen grabada en tu Raspberry
 4. Enchufa el **cable de alimentación**
 5. La Raspberry se encenderá, aparecerá la imágen inicial de *garlic-dog*
