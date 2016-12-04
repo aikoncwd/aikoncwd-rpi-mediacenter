@@ -198,7 +198,7 @@ Si quieres puedes ejecutar un **benchmark** (diagnóstico) para testear tu nivel
 
 ### Raspberry Pi 3: Overclock settings
 
-Edita tu fichero `/boot/config.txt` y pega el siguiente código, puedes ajustar los valores para tener más o menos overclock:
+Edita tu fichero `nano /boot/config.txt` y pega el siguiente código, puedes ajustar los valores para tener más o menos overclock:
 
 ```
 force_turbo=0                   #Enable cpu-overclock over 1300MHz (default 0)
@@ -245,7 +245,7 @@ Lee bien los comandos, es posible que te interese modificar algunos para persona
 
 ### Raspberry Pi 2: Overclock settings
 
-Edita tu fichero `/boot/config.txt` y pega el siguiente código, puedes ajustar los valores para tener más o menos overclock:
+Edita tu fichero `nano /boot/config.txt` y pega el siguiente código, puedes ajustar los valores para tener más o menos overclock:
 
     gpu_mem=256
     gpu_mem_256=128
