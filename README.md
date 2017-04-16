@@ -136,10 +136,10 @@ Puede que el router de tu casa tenga otra dirección (por ejemplo **192.168.0.1*
 
 Una vez finalizado, guarda los cambios en el fichero, para ello pulsa: <kbd>CTRL</kbd>+<kbd>X</kbd>, luego <kbd>Y</kbd> y finalmente <kbd>Intro</kbd>.
 
-#PASO 3: Cambiar el password de root
+# PASO 3: Cambiar el password de root
 El usuario por defecto de ésta imagen es **root**, la contraseña original es **aikoncwd**. Recomiendo encarecidamente que cambies ese password, para ello escribe el comando `passwd root`, a continuación escribe tu nuevo password 2 veces. Recuerda que éste usuario/password lo utilizarás para acceder a la Raspberry por **SSH** o **sFTP** (FileZilla), también lo usarás si pretendes controlar Kodi desde tu **smartphone**, etc...
 
-#PASO 4: Configurar Transmission (opcional)
+# PASO 4: Configurar Transmission (opcional)
 **Transmission** es un programa que permite transformar tu Raspberry en un servidor de descargas **BitTorrent**. El daemon de transmission está instalado y configurado, pero **se encuentra deshabilitado por defecto** ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar transmission... sigue leyendo:
 
 Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la **Raspberry**. Edita el fichero de auto-arranque con el comando:
@@ -172,7 +172,7 @@ Salva los cambios en el fichero `settings.json` pulsando las teclas: <kbd>CTRL</
 
 El daemon de Transmission estará activo en el **puerto 9091**, con usuario y password **root**. Podrás comprobar el daemon si accedes a través de un explorador web a la dirección http://ip_raspberry:9091, por ejemplo **http://192.168.1.100:9091** Pulsamos el botón de configuración *llave inglesa* para editar las preferencias. La configuración de descargas está configurado para ser lo más óptima posible. Encontrarás agregada una URL de **ip-block** para mejorar la descarga de ficheros torrents en transmission. Puedes controlar transmission desde tu smartphone, hay una [app](https://play.google.com/store/apps/details?id=com.neogb.rtac&hl=es) para ello (también en iOS). 
 
-#PASO 5: Configurar PyLoad (opcional)
+# PASO 5: Configurar PyLoad (opcional)
 **PyLoad** es un programa que permite transformar tu Raspberry en un servidor de **descargas directas**. El daemon de **PyLoad** está instalado y configurado, pero **se encuentra deshabilitado por defecto** ya que no todos los usuarios necesitan utilizarlo. Si quieres habilitar y utilizar **PyLoad**... sigue leyendo:
 
 Primero de todo vamos a configurar el daemon para que se auto-ejecute al encender la **Raspberry**. Edita el fichero de auto-arranque **cron** con el comando:
